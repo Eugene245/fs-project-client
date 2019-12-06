@@ -12,64 +12,59 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-.info{
-    
+.post-content{
     padding: 20px;
 }
 
-.info div{
-    margin-bottom: 35px;
-}
-
-.info div{
+.post-content div{
+    margin-bottom: 10px;
     display: inline-block;
 }
 
-.info .user{
+.post-content_user{
     height: 100px;
     width: 100%;
-    /* background-color: aqua; */
 }
 
-.info .user .avatar{
+.post-content_user-avatar{
     width: 75px;
     margin: 20px;
 }
 
-.info .user .name{
+.post-content_user-name{
     text-align: center;
     vertical-align: middle;
     font-size: 25px;
-    color: rgb(6, 191, 247);
+    color: rgb(0, 106, 228);
     height: 100%;
     margin: 20px;
 }
 
-.info .name span:hover{
+.post-content_user-name span:hover{
     text-decoration: underline;
     cursor: pointer;
 }
 
-.info .text .content{
+.post-content_content{
     width: 100%;
     font-family: sans-serif;
     font-size: 17px;
-    margin-bottom: 0!important;
+    margin-bottom: 0;
 }
 
-.info .text .title{
-    margin-bottom: 10px!important;
+.post-content_text-title{
+    margin-bottom: 10px;
     width: 100%;
 }
 
-.info .text .title .title-text{
+.post-content_text-title-text{
     font-family: sans-serif;
     font-size: 35px;
     color: black;
     position: relative;
 }
 
-.info .text .title .title-text::after {
+.post-content_text-title-text::after {
     content:' ';
     display:block;
     margin-top: 10px;
@@ -82,27 +77,28 @@
     -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.info .text .content img{
+.post-content_img img{
     max-width:100%;
     max-height:100%;
+    margin: 0 auto;
 }
 
-.info .post-info {
+.post-info {
     width: 100%;
     height: 40px;
-    margin-bottom: 0!important;
+    margin-bottom: 0;
   }
 
-  .info .post-info .date{
+  .post-info_date{
     float: left;
     color: grey;
   }
 
-  .info .post-info .likes{
+  .post-info_likes{
     float: right;
   }
 
-  .info .post-info .likes .like-button{
+  .post-info_like-button{
     background: rgb(255, 255, 255); 
     border-radius: 5px;
     border: 0.5px solid rgb(197, 197, 197);
@@ -114,16 +110,16 @@
     font-size: 20px;
   }
 
-  .info .post-info .likes .like-button:hover{
+  .post-info_like-button:hover{
     background-color: rgb(6, 191, 247);
     color: rgb(255, 255, 255);
   }
 
-  .info .post-info .likes .like-button:active{
+  .post-info_like-button:active{
     background-color: rgb(6, 191, 247);
   }
 
-  .info .post-info .likes .like-button .counter{
+  .post-info_like-button-counter{
       display: inline-block;
   }
 
@@ -131,6 +127,37 @@
       margin: 5px;
   }
 
+  .comments-qty {
+      display: block;
+  }
+
   .comment-list {
-    
+      display: block;
+  }
+
+  .comment-list ul{
+      
+    display: block;
+    list-style-type: none;
+  }
+
+  .comment-list li {
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .comment-list-item_author {
+      padding: 10px;
+      display: block;
+  }
+
+  .comment-list-item_text {
+    padding: 10px;
+    display: block;
+  }
+
+  .comment-list-item_date {
+    padding: 10px;
+    display: block;
   }
