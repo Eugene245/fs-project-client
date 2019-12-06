@@ -1,17 +1,30 @@
 import React from 'react';
 import '../../styles/post.css';
 import ReadMoreAndLess from 'react-read-more-less';
-import store from '../../store/index'
+import { Redirect } from 'react-router-dom'
 
 class Post extends React.Component{
     constructor(props){
         super(props);
+        this.clickHandler = this.clickHandler.bind(this);
+        this.state = { redirect: false, id: null }
+    }
+
+    postRedirect() {
+      if(this.state.redirect)
+        return <Redirect to={`/posts/${this.state.id}`} />
+    }
+
+    clickHandler(e) {
+      e.preventDefault();
+      this.setState({ redirect: true, id: e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id') })
     }
 
     render() {
-        return <div id="wrapper">
-  <div class="post" id={`post-${this.props.id}`}>
-    
+        return <>
+        {this.postRedirect()}
+        <div id="wrapper">
+  <div class="post" id={this.props.id}>
     <div class="info">
       <div class="user">
         <div class="avatar">
@@ -23,7 +36,7 @@ class Post extends React.Component{
       </div>
       <div class="text">
         <div class="title">
-            <span class="title-text">{this.props.title}</span>
+            <span class="title-text" onClick={this.clickHandler}>{this.props.title}</span>
         </div>
         <div class="content">
           <span class="content-text">
@@ -54,9 +67,13 @@ class Post extends React.Component{
           </button>
         </div>
       </div>
+      <div>
+        <span>{this.props.commentsQty} comments</span>
+      </div>
     </div>
   </div>
 </div>
+</>
     }    
 }
 

@@ -50,17 +50,20 @@ export default function(state = initialState, action) {
         error: action.error,
       }
     case types.ADDPOST_REQUEST:
+    case types.ADDCOMMENT_REQUEST:
       return {
         ...state,
         error: null,
       }
     case types.ADDPOST_SUCCESS:
+    case types.ADDCOMMENT_SUCCESS:
       return {
         ...state,
         added: true,
         error: null,
       }
     case types.ADDPOST_ERROR:
+    case types.ADDCOMMENT_ERROR:
       return {
         ...state,
         added: false,

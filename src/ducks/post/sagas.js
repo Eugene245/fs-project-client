@@ -46,8 +46,22 @@ export function* addPostRequestSaga(credentials) {
   }
 }
 
+export function* addCommentRequestSaga(credentials) {
+  try {
+    const {
+      data: { comment },
+    } = yield services.sendComment(credentials)
+    yield put(actions.AddCommentSuccess(comment))
+    return { payload: comment }
+  } catch (error) {
+    yield put(actions.AddCommentError(error.response.data.msg))
+    return { error }
+  }
+}
+
 export default {
   fetchPostsSaga,
   fetchPostByIdSaga,
   addPostRequestSaga,
+  addCommentRequestSaga,
 }

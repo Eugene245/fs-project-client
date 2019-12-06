@@ -60,3 +60,23 @@ export function AddPostError(error) {
     error,
   }
 }
+
+export function AddCommentRequest(credentials) {
+  return {
+    type: types.ADDCOMMENT_REQUEST,
+    credentials,
+  }
+}
+
+export function AddCommentSuccess() {
+  return {
+    type: types.ADDCOMMENT_SUCCESS,
+  }
+}
+
+export function AddCommentError(error) {
+  return {
+    type: types.ADDCOMMENT_ERROR,
+    error,
+  }
+}

@@ -33,6 +33,13 @@ export function addPost(credentials) {
   }
 }
 
+export function addComment(credentials) {
+  return {
+    type: types.ADD_COMMENT,
+    credentials,
+  }
+}
+
 export function fetchPosts(limit, offset) {
   return {
     type: types.FETCH_POSTS,

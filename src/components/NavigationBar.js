@@ -46,10 +46,15 @@ const NavigationBar = props => {
                 <div>
                   <NavLink to="/login" activeClassName="active">
                   <div className='App-navigationBar-button'>
-                    <Button color="primary">login</Button>
+                    <Button color="primary">Login</Button>
                   </div>
                   </NavLink>
-                  <SignUpContainer/>
+                  <NavLink to="/signup" activeClassName="active">
+                  <div className='App-navigationBar-button'>
+                    <Button color="primary">Sign Up</Button>
+                  </div>
+                  </NavLink>
+                  
                 </div>
               )
               // case 'login error':

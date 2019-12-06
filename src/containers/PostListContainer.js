@@ -13,7 +13,7 @@ class PostListContainer extends React.Component {
 
   componentDidMount() {
     const { hasPosts, fetchPosts } = this.props
-    if (!hasPosts)
+
       fetchPosts(
         PostListContainer.DEFAULT_LIMIT,
         PostListContainer.DEFAULT_OFFSET,

@@ -15,3 +15,7 @@ export function fetchPostById(id) {
 export function sendPost(credentials) {
   return axios.post('http://localhost:5000/api/posts/add', credentials)
 }
+
+export function sendComment(credentials) {
+  return axios.post('http://localhost:5000/api/posts/new-comment', credentials)
+}

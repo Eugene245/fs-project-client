@@ -22,6 +22,7 @@ class Login extends React.Component {
 }
 
   handleSubmit(event) {
+    console.log(event)
     const { onLoginRequest } = this.props
     event.preventDefault();
     const user = {

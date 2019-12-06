@@ -18,7 +18,8 @@ export class PostContainer extends React.Component {
           text={this.props.post.postText}
           date={this.props.post.creation_date}
           id={this.props.post._id}
-          likes={this.props.post.likes} 
+          likes={this.props.post.likes}
+          commentsQty={this.props.post.comments.length} 
         />
       </div>
     );

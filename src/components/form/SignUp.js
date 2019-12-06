@@ -46,18 +46,14 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
-        <Button color="link" onClick={this.toggle}>Sign up</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Register</ModalHeader>
-          <ModalBody>
+        
             <form className="signUpForm" onSubmit={this.handleSubmit}>
               <input type="text" placeholder="name" name="username" onChange={this.handleChange}/>
               <input type="text" placeholder="e-mail" name="email" onChange={this.handleChange}/>
               <input type="password" placeholder="password" name="password" onChange={this.handleChange}/>
               <input className="App-signin-button" type="submit" value="Sign up" />
             </form>
-          </ModalBody>
-        </Modal>
+          
       </div>
     )
   }

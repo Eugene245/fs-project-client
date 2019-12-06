@@ -2,6 +2,10 @@ export const ADDPOST_REQUEST = '@@post/ADDPOST_REQUEST'
 export const ADDPOST_SUCCESS = '@@post/ADDPOST_SUCCESS'
 export const ADDPOST_ERROR = '@@post/ADDPOST_ERROR'
 
+export const ADDCOMMENT_REQUEST = '@@comment/ADDCOMMENT_REQUEST'
+export const ADDCOMMENT_SUCCESS = '@@comment/ADDCOMMENT_SUCCESS'
+export const ADDCOMMENT_ERROR = '@@comment/ADDCOMMENT_ERROR'
+
 export const FETCH_POSTS_REQUEST = '@@post/FETCH_POSTS_REQUEST'
 export const FETCH_POSTS_SUCCESS = '@@post/FETCH_POSTS_SUCCESS'
 export const FETCH_POSTS_ERROR = '@@post/FETCH_POSTS_ERROR'

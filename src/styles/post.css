@@ -12,31 +12,31 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-.post .info{
+.info{
     
     padding: 20px;
 }
 
-.post .info div{
+.info div{
     margin-bottom: 35px;
 }
 
-.post .info div{
+.info div{
     display: inline-block;
 }
 
-.post .info .user{
+.info .user{
     height: 100px;
     width: 100%;
     /* background-color: aqua; */
 }
 
-.post .info .user .avatar{
+.info .user .avatar{
     width: 75px;
     margin: 20px;
 }
 
-.post .info .user .name{
+.info .user .name{
     text-align: center;
     vertical-align: middle;
     font-size: 25px;
@@ -45,31 +45,31 @@
     margin: 20px;
 }
 
-.post .info .name span:hover{
+.info .name span:hover{
     text-decoration: underline;
     cursor: pointer;
 }
 
-.post .info .text .content{
+.info .text .content{
     width: 100%;
     font-family: sans-serif;
     font-size: 17px;
     margin-bottom: 0!important;
 }
 
-.post .info .text .title{
+.info .text .title{
     margin-bottom: 10px!important;
     width: 100%;
 }
 
-.post .info .text .title .title-text{
+.info .text .title .title-text{
     font-family: sans-serif;
     font-size: 35px;
     color: black;
     position: relative;
 }
 
-.post .info .text .title .title-text::after {
+.info .text .title .title-text::after {
     content:' ';
     display:block;
     margin-top: 10px;
@@ -82,27 +82,27 @@
     -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.post .info .text .content img{
+.info .text .content img{
     max-width:100%;
     max-height:100%;
 }
 
-.post .info .post-info {
+.info .post-info {
     width: 100%;
     height: 40px;
     margin-bottom: 0!important;
   }
 
-  .post .info .post-info .date{
+  .info .post-info .date{
     float: left;
     color: grey;
   }
 
-  .post .info .post-info .likes{
+  .info .post-info .likes{
     float: right;
   }
 
-  .post .info .post-info .likes .like-button{
+  .info .post-info .likes .like-button{
     background: rgb(255, 255, 255); 
     border-radius: 5px;
     border: 0.5px solid rgb(197, 197, 197);
@@ -114,19 +114,23 @@
     font-size: 20px;
   }
 
-  .post .info .post-info .likes .like-button:hover{
+  .info .post-info .likes .like-button:hover{
     background-color: rgb(6, 191, 247);
     color: rgb(255, 255, 255);
   }
 
-  .post .info .post-info .likes .like-button:active{
+  .info .post-info .likes .like-button:active{
     background-color: rgb(6, 191, 247);
   }
 
-  .post .info .post-info .likes .like-button .counter{
+  .info .post-info .likes .like-button .counter{
       display: inline-block;
   }
 
   .content-text label{
       margin: 5px;
+  }
+
+  .comment-list {
+    
   }

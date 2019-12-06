@@ -21,6 +21,7 @@ const App = () => {
               <Route path="/home" component={Home} />
               <Route path="/posts" exact component={PostListContainer} />
               <Route path="/login" component={LoginContainer} />
+              <Route path="/signup" component={SignUpContainer} />
               <Route path="/list" component={FeedContainer} />
               <Route path="/add-post" component={AddPostContainer} />
               <Route path="/posts/:id" component={PostByIdContainer} />
