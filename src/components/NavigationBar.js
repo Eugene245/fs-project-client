@@ -2,9 +2,6 @@ import React from 'react'
 import { Button } from 'reactstrap'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import SignUpContainer from '../containers/SignUpContainer'
-import AddPostContainer from '../containers/AddPostContainer'
-import Notification from './Notification'
 import store from '../store/index'
 import * as types from '../ducks/user/types'
 
@@ -39,6 +36,13 @@ const NavigationBar = props => {
                     <Button color="danger">Add Post</Button>
                   </div>
                   </NavLink>
+
+                  <NavLink to={`/profile/${props.user.user.name}`} activeClassName="active">
+                  <div className='App-navigationBar-button App-navigationBar-button__profile'>
+                    <Button color="info">{props.user.user.name}</Button>
+                  </div>
+                  </NavLink>
+                
               </div>
               )
             case false:

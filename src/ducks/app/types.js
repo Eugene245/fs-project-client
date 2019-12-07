@@ -9,3 +9,5 @@ export const ADD_COMMENT = '@@app/ADD_COMMENT'
 
 export const FETCH_POSTS = '@@app/FETCH_POSTS'
 export const FETCH_POST = '@@app/FETCH_POST'
+
+export const FETCH_USER = '@@app/FETCH_USER'

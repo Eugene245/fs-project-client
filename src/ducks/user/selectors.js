@@ -6,3 +6,7 @@ export function selectUser(state) {
 export function selectToken(state) {
   return state.app.token
 }
+
+export function selectReceivedUser(state) {
+  return state.user.receivedUser
+}

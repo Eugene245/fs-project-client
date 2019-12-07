@@ -7,13 +7,12 @@ import * as postSelectors from '../ducks/post/selectors'
 import { actions as appActions } from '../ducks/app'
 
 class PostListContainer extends React.Component {
-  static DEFAULT_LIMIT = 10
+  static DEFAULT_LIMIT = 5
 
   static DEFAULT_OFFSET = 0
 
   componentDidMount() {
-    const { hasPosts, fetchPosts } = this.props
-
+    const { fetchPosts } = this.props
       fetchPosts(
         PostListContainer.DEFAULT_LIMIT,
         PostListContainer.DEFAULT_OFFSET,

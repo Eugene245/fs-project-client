@@ -1,7 +1,6 @@
-import React from 'react';
+import React from 'react'
 import {connect} from 'react-redux';
 import NavigationBar from '../components/NavigationBar';
-
 
 class NavBarContainer extends React.Component {
   constructor(props){

@@ -1,5 +1,6 @@
 import { call, put } from 'redux-saga/effects'
 import * as actions from './actions'
+import * as postActions from '../post/actions'
 import * as services from './services'
 
 export function* registerSaga(credentials) {
@@ -29,18 +30,23 @@ export function* loginSaga(credentials) {
   }
 }
 
-export function* fetchUserSaga() {
+export function* fetchUserSaga(userName, offset, limit) {
   try {
     yield put(actions.fetchUserRequest())
+    yield put(postActions.fetchPostsRequest())
 
-    const {
-      data: { user, token },
-    } = yield call(services.fetchUser)
+    const { user, posts, pagination } = yield call(
+      services.fetchUser,
+      userName,
+      offset,
+      limit,
+    )
     yield put(actions.fetchUserSuccess(user))
-    yield localStorage.setItem('token', token)
-    return { payload: user, token }
-  } catch (error) {
+    yield put(postActions.fetchPostsSuccess(posts, pagination))
+    return { payload: { user, posts, pagination } }
+  } catch (error) { 
     yield put(actions.fetchUserError(error))
+    yield put(postActions.fetchPostsError(error))
     return { error }
   }
 }

@@ -11,11 +11,15 @@ export default function(state = initialState, action) {
       }
     case types.LOGIN_SUCCESS:
     case types.REGISTER_SUCCESS:
-    case types.FETCH_USER_SUCCESS:
       return {
         ...state,
         user: action.user,
         isAuthenticated: true,
+      }
+    case types.FETCH_USER_SUCCESS:
+      return {
+        ...state,
+        receivedUser: action.user,
       }
     case types.LOGIN_ERROR:
     case types.REGISTER_ERROR:

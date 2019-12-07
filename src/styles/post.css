@@ -21,17 +21,17 @@
     display: inline-block;
 }
 
-.post-content_user{
+.post-content__user{
     height: 100px;
     width: 100%;
 }
 
-.post-content_user-avatar{
+.post-content__user-avatar{
     width: 75px;
     margin: 20px;
 }
 
-.post-content_user-name{
+.post-content__user-name{
     text-align: center;
     vertical-align: middle;
     font-size: 25px;
@@ -40,31 +40,31 @@
     margin: 20px;
 }
 
-.post-content_user-name span:hover{
+.post-content__user-name span:hover{
     text-decoration: underline;
     cursor: pointer;
 }
 
-.post-content_content{
+.post-content__content{
     width: 100%;
     font-family: sans-serif;
     font-size: 17px;
     margin-bottom: 0;
 }
 
-.post-content_text-title{
+.post-content__text-title{
     margin-bottom: 10px;
     width: 100%;
 }
 
-.post-content_text-title-text{
+.post-content__text-title-text{
     font-family: sans-serif;
     font-size: 35px;
     color: black;
     position: relative;
 }
 
-.post-content_text-title-text::after {
+.post-content__text-title-text::after {
     content:' ';
     display:block;
     margin-top: 10px;
@@ -77,7 +77,7 @@
     -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.post-content_img img{
+.post-content__img img{
     max-width:100%;
     max-height:100%;
     margin: 0 auto;
@@ -89,16 +89,16 @@
     margin-bottom: 0;
   }
 
-  .post-info_date{
+  .post-info__date{
     float: left;
     color: grey;
   }
 
-  .post-info_likes{
+  .post-info__likes{
     float: right;
   }
 
-  .post-info_like-button{
+  .post-info__like-button{
     background: rgb(255, 255, 255); 
     border-radius: 5px;
     border: 0.5px solid rgb(197, 197, 197);
@@ -110,16 +110,16 @@
     font-size: 20px;
   }
 
-  .post-info_like-button:hover{
+  .post-info__like-button:hover{
     background-color: rgb(6, 191, 247);
     color: rgb(255, 255, 255);
   }
 
-  .post-info_like-button:active{
+  .post-info__like-button:active{
     background-color: rgb(6, 191, 247);
   }
 
-  .post-info_like-button-counter{
+  .post-info__like-button-counter{
       display: inline-block;
   }
 
@@ -147,17 +147,17 @@
     width: 100%;
   }
 
-  .comment-list-item_author {
+  .comment-list-item__author {
       padding: 10px;
       display: block;
   }
 
-  .comment-list-item_text {
+  .comment-list-item__text {
     padding: 10px;
     display: block;
   }
 
-  .comment-list-item_date {
+  .comment-list-item__date {
     padding: 10px;
     display: block;
   }

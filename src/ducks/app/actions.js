@@ -54,3 +54,12 @@ export function fetchPostById(id) {
     id,
   }
 }
+
+export function fetchUser(name, offset, limit) {
+  return {
+    type: types.FETCH_USER,
+    name,
+    offset,
+    limit,
+  }
+}

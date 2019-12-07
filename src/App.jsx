@@ -10,6 +10,7 @@ import FeedContainer from './containers/FeedContainer'
 import SignUpContainer from './containers/SignUpContainer'
 import AddPostContainer from './containers/AddPostContainer'
 import PostByIdContainer from './containers/PostByIdContainer'
+import UserProfileContainer from './containers/UserProfileContainer'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
               <Route path="/login" component={LoginContainer} />
               <Route path="/signup" component={SignUpContainer} />
               <Route path="/list" component={FeedContainer} />
+              <Route path="/profile/:name" component={UserProfileContainer} />
               <Route path="/add-post" component={AddPostContainer} />
               <Route path="/posts/:id" component={PostByIdContainer} />
               <Route path="/not-found" component={NotFound} />
