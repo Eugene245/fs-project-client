@@ -41,26 +41,6 @@ export function fetchPostByIdError(error) {
   }
 }
 
-// export function fetchPostByUserRequest() {
-//   return {
-//     type: types.FETCH_POST_BY_USER_REQUEST,
-//   }
-// }
-
-// export function fetchPostByUserSuccess(post) {
-//   return {
-//     type: types.FETCH_POST_BY_USER_SUCCESS,
-//     post,
-//   }
-// }
-
-// export function fetchPostByUserError(error) {
-//   return {
-//     type: types.FETCH_POST_BY_USER_ERROR,
-//     error,
-//   }
-// }
-
 export function AddPostRequest(credentials) {
   return {
     type: types.ADDPOST_REQUEST,

@@ -66,3 +66,45 @@ export function fetchUserError(error) {
     error,
   }
 }
+
+export function followRequest(credentials) {
+  return {
+    type: types.FOLLOW_REQUEST,
+    credentials,
+  }
+}
+
+export function followSuccess(following) {
+  return {
+    type: types.FOLLOW_SUCCESS,
+    following,
+  }
+}
+
+export function followError(error) {
+  return {
+    type: types.FOLLOW_ERROR,
+    error,
+  }
+}
+
+export function unfollowRequest(credentials) {
+  return {
+    type: types.UNFOLLOW_REQUEST,
+    credentials,
+  }
+}
+
+export function unfollowSuccess(following) {
+  return {
+    type: types.UNFOLLOW_SUCCESS,
+    following,
+  }
+}
+
+export function unfollowError(error) {
+  return {
+    type: types.UNFOLLOW_ERROR,
+    error,
+  }
+}

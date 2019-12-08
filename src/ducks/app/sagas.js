@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects'
-import { registerSaga, loginSaga, logoutSaga, fetchUserSaga } from '../user/sagas'
+import { registerSaga, loginSaga, logoutSaga, fetchUserSaga, followRequestSaga, unfollowRequestSaga } from '../user/sagas'
 import { addPostRequestSaga, addCommentRequestSaga, fetchPostsSaga, fetchPostByIdSaga } from '../post/sagas'
 import * as types from './types'
 
@@ -37,6 +37,14 @@ function* fetchUserByNameSaga(action) {
   yield call(fetchUserSaga, name, offset, limit)
 }
 
+function* followSaga(action) {
+  yield call(followRequestSaga, action.credentials)
+}
+
+function* unfollowSaga(action) {
+  yield call(unfollowRequestSaga, action.credentials)
+}
+
 export default function*() {
   yield all([
     takeLatest(types.FETCH_POSTS, fetchFeedSaga),
@@ -45,6 +53,8 @@ export default function*() {
     takeLatest(types.REGISTER_USER, registerUserSaga),
     takeLatest(types.LOGIN_USER, loginUserSaga),
     takeLatest(types.LOGOUT_USER, logoutUserSaga),
+    takeLatest(types.FOLLOW, followSaga),
+    takeLatest(types.UNFOLLOW, unfollowSaga),
     takeLatest(types.ADD_POST, addPostSaga),
     takeLatest(types.ADD_COMMENT, addCommentSaga),
   ])

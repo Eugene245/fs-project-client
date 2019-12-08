@@ -10,7 +10,12 @@ class PostById extends React.Component {
   render(){
     const { post, user } = this.props
     return(
-      <div id="wrapper">
+      <>
+      {
+        (() => {
+          if(post !== undefined) {
+            return (
+              <div id="wrapper">
             <div class="post-page" id={post.id}>
               <div class="post-content">
                 <div class="post-content__user">
@@ -58,6 +63,13 @@ class PostById extends React.Component {
           </div>
       </div>
     </div>
+            )
+          } else {
+            return <div>loadig...</div>
+          }
+        })()
+      }
+      </>
     )
   }
 }

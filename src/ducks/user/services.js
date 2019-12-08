@@ -13,3 +13,15 @@ export function fetchUser(name, offset, limit) {
     .get(`http://localhost:5000/api/users/${name}?offset=${offset}&limit=${limit}`)
     .then(response => response.data)
 }
+
+export function follow(credentials) {
+  return axios
+    .post('http://localhost:5000/api/users/following/follow', credentials)
+    .then(response => response.data)
+}
+
+export function unfollow(credentials) {
+  return axios
+    .post('http://localhost:5000/api/users/following/unfollow', credentials)
+    .then(response => response.data)
+}

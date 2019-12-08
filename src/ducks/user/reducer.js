@@ -5,17 +5,28 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_REQUEST:
     case types.REGISTER_REQUEST:
+    case types.FOLLOW_REQUEST:
+    case types.UNFOLLOW_REQUEST:
       return {
         ...state,
         error: null,
       }
-    case types.LOGIN_SUCCESS:
+    case types.LOGIN_SUCCESS:  
     case types.REGISTER_SUCCESS:
       return {
         ...state,
         user: action.user,
         isAuthenticated: true,
       }
+    case types.FOLLOW_SUCCESS:
+    case types.UNFOLLOW_SUCCESS:  
+    return {
+      ...state,
+      user: {
+        ...state.user,
+        following: action.following
+      }
+    }  
     case types.FETCH_USER_SUCCESS:
       return {
         ...state,
@@ -23,6 +34,8 @@ export default function(state = initialState, action) {
       }
     case types.LOGIN_ERROR:
     case types.REGISTER_ERROR:
+    case types.FOLLOW_ERROR:
+    case types.UNFOLLOW_ERROR:
     case types.FETCH_USER_ERROR:
       return {
         ...state,

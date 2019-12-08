@@ -51,6 +51,28 @@ export function* fetchUserSaga(userName, offset, limit) {
   }
 }
 
+export function* followRequestSaga(credentials) {
+  try {
+    const { following } = yield call(services.follow, credentials)
+    yield put(actions.followSuccess(following))
+    return { payload: following }
+  } catch (error) {
+    yield put(actions.followError(error))
+    return { error }
+  }
+}
+
+export function* unfollowRequestSaga(credentials) {
+  try {
+    const { following } = yield call(services.unfollow, credentials)
+    yield put(actions.unfollowSuccess(following))
+    return { payload: following }
+  } catch (error) {
+    yield put(actions.unfollowError(error))
+    return { error }
+  }
+}
+
 export function* logoutSaga() {
   yield put(actions.logout())
 }

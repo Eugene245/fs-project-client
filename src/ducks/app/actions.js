@@ -40,6 +40,20 @@ export function addComment(credentials) {
   }
 }
 
+export function follow(credentials) {
+  return {
+    type: types.FOLLOW,
+    credentials,
+  }
+}
+
+export function unfollow(credentials) {
+  return {
+    type: types.UNFOLLOW,
+    credentials,
+  }
+}
+
 export function fetchPosts(limit, offset) {
   return {
     type: types.FETCH_POSTS,

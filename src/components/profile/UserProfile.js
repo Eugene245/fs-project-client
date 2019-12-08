@@ -8,51 +8,32 @@ class UserProfile extends React.Component {
   constructor(props){
     super(props)
   }
-  // componentDidMount() {
-  //   const { fetchPosts } = this.props
-  //     fetchPosts(
-  //       PostListContainer.DEFAULT_LIMIT,
-  //       PostListContainer.DEFAULT_OFFSET,
-  //     )
-  // }
-
-  // handlePostsFetch = () => {
-  //   const { fetchPosts, pagination } = this.props
-  //   const offset = pagination.offset + PostListContainer.DEFAULT_LIMIT
-  //   fetchPosts(PostListContainer.DEFAULT_LIMIT, offset)
-  // }
 
   render() {
       return (
-        <>
+        <div className="wrapper">
         {
           (() => {
-            if(Object.entries(this.props.receivedUser).length !== 0) {              
+            if(Object.entries(this.props.receivedUser).length !== 0 && this.props.posts.length !== 0) {              
             return (
+              <>
               <UserInfo user={this.props.receivedUser} />
-            )
-            } else if(Object.entries(this.props.receivedUser).length === 0){              
-              return (
-                <div>loading...</div>
-              )
-            }
-            if(this.props.posts.length !== 0) {              
-              return (
-                <PostList
+              <PostList
               posts={this.props.posts}
               // handleFetch={this.handlePostsFetch}
               // showPagination={hasMorePages}
               // {...restProps}
               />
-              )
-            } else if(this.props.posts.length === 0) {              
+              </>
+            )
+            } else {              
               return (
                 <div>loading...</div>
               )
             }
           })()
         }
-        </>
+        </div>
       )
 
   }

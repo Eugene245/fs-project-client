@@ -7,6 +7,9 @@ export const LOGOUT_USER = '@@app/LOGOUT_USER'
 export const ADD_POST = '@@app/ADD_POST'
 export const ADD_COMMENT = '@@app/ADD_COMMENT'
 
+export const FOLLOW = '@@app/FOLLOW'
+export const UNFOLLOW = '@@app/UNFOLLOW'
+
 export const FETCH_POSTS = '@@app/FETCH_POSTS'
 export const FETCH_POST = '@@app/FETCH_POST'
 

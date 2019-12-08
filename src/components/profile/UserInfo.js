@@ -1,7 +1,7 @@
 import React from 'react'
+import FollowButtonContainer from '../../containers/FollowButtonContainer'
 
 export default function UserInfo(props) {
-console.log(props.user)
   return (
     <div className="wrapper">
       <div className="user-info-page__name">
@@ -13,6 +13,7 @@ console.log(props.user)
           {props.user.description}
         </p>
       </div>
+      <FollowButtonContainer userName={props.user.name}/>
     </div>
   )  
 }

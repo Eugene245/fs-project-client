@@ -1,7 +1,6 @@
 import React from 'react'
 import Post from '../components/posts/Post'
 import {connect} from 'react-redux'
-import * as types from '../ducks/post/types'
 
 export class PostContainer extends React.Component {
   constructor(props){
@@ -26,11 +25,11 @@ export class PostContainer extends React.Component {
   }
 }
 
-export default connect (
-  null,
-  dispatch => {
-    return {
-      
-    }
-  })(PostContainer)
+const mapStateToProps = () => ({})
 
+const mapDispatchToProps = {}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PostContainer)
