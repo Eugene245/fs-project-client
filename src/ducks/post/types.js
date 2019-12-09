@@ -14,6 +14,14 @@ export const FETCH_POST_BY_ID_REQUEST = '@@post/FETCH_POST_BY_ID_REQUEST'
 export const FETCH_POST_BY_ID_SUCCESS = '@@post/FETCH_POST_BY_IDS_SUCCESS'
 export const FETCH_POST_BY_ID_ERROR = '@@post/FETCH_POST_BY_IDS_ERROR'
 
+export const LIKE_REQUEST = '@@post/LIKE_REQUEST'
+export const LIKE_SUCCESS = '@@post/LIKE_SUCCESS'
+export const LIKE_ERROR = '@@post/LIKE_ERROR'
+
+export const UNLIKE_REQUEST = '@@post/UNLIKE_REQUEST'
+export const UNLIKE_SUCCESS = '@@post/UNLIKE_SUCCESS'
+export const UNLIKE_ERROR = '@@post/UNLIKE_ERROR'
+
 export const FETCH_POSTS_BY_USER_REQUEST = '@@post/FETCH_POSTS_BY_USER_REQUEST'
 export const FETCH_POSTS_BY_USER_SUCCESS = '@@post/FETCH_POSTS_BY_USER_SUCCESS'
 export const FETCH_POSTS_BY_USER_ERROR = '@@post/FETCH_POSTS_BY_USER_ERROR'

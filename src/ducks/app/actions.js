@@ -54,6 +54,20 @@ export function unfollow(credentials) {
   }
 }
 
+export function like(credentials) {
+  return {
+    type: types.LIKE,
+    credentials,
+  }
+}
+
+export function unlike(credentials) {
+  return {
+    type: types.UNLIKE,
+    credentials,
+  }
+}
+
 export function fetchPosts(limit, offset) {
   return {
     type: types.FETCH_POSTS,

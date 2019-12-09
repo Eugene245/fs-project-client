@@ -111,12 +111,17 @@
   }
 
   .post-info__like-button:hover{
-    background-color: rgb(6, 191, 247);
+    background-color: rgb(82, 215, 255);
     color: rgb(255, 255, 255);
   }
 
   .post-info__like-button:active{
+    background-color: rgb(82, 215, 255);
+  }
+
+  .post-info__like-button_liked {
     background-color: rgb(6, 191, 247);
+    color: rgb(255, 255, 255);
   }
 
   .post-info__like-button-counter{

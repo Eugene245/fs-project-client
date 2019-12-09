@@ -6,7 +6,6 @@ import store from '../store/index'
 import * as types from '../ducks/user/types'
 
 const NavigationBar = props => {
-  console.log(props)
   return (
     <nav className='App-navigationBar'>  
 

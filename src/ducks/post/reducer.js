@@ -4,12 +4,13 @@ import initialState from './state'
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case types.LIKE_REQUEST:
+    case types.UNLIKE_REQUEST: 
     case types.FETCH_POST_BY_ID_REQUEST:
       return {
         ...state,
         error: null,
       }
-
     case types.FETCH_POST_BY_ID_SUCCESS:
       return {
         ...state,
@@ -18,7 +19,18 @@ export default function(state = initialState, action) {
           [action.post._id]: action.post,
         },
       }
-
+    case types.LIKE_SUCCESS:
+    case types.UNLIKE_SUCCESS: 
+      return {
+        ...state,
+        postsById: {
+          ...state.postsById,
+          [action.postId]: {
+            ...state.postsById[action.postId],
+            likes: action.likes
+          }
+        }
+      } 
     case types.FETCH_POSTS_REQUEST:
       return {
         ...state,
@@ -45,6 +57,8 @@ export default function(state = initialState, action) {
 
     case types.FETCH_POST_BY_ID_ERROR:
     case types.FETCH_POSTS_ERROR:
+    case types.LIKE_ERROR:
+    case types.UNLIKE_ERROR: 
       return {
         ...state,
         error: action.error,

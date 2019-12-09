@@ -7,6 +7,8 @@ export default function(state = initialState, action) {
     case types.REGISTER_REQUEST:
     case types.FOLLOW_REQUEST:
     case types.UNFOLLOW_REQUEST:
+    case types.LIKE_REQUEST:
+    case types.UNLIKE_REQUEST:
       return {
         ...state,
         error: null,
@@ -17,6 +19,15 @@ export default function(state = initialState, action) {
         ...state,
         user: action.user,
         isAuthenticated: true,
+      }
+    case types.LIKE_SUCCESS:  
+    case types.UNLIKE_SUCCESS:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          liked_posts: action.liked_posts,
+        }
       }
     case types.FOLLOW_SUCCESS:
     case types.UNFOLLOW_SUCCESS:  
@@ -36,6 +47,8 @@ export default function(state = initialState, action) {
     case types.REGISTER_ERROR:
     case types.FOLLOW_ERROR:
     case types.UNFOLLOW_ERROR:
+    case types.LIKE_ERROR:
+    case types.UNLIKE_ERROR:
     case types.FETCH_USER_ERROR:
       return {
         ...state,

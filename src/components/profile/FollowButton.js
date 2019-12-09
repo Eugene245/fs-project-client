@@ -29,7 +29,6 @@ class FollowButton extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const { following } = this.props.user.user
     const { userName } = this.props
 

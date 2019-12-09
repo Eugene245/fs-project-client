@@ -108,3 +108,45 @@ export function unfollowError(error) {
     error,
   }
 }
+
+export function likeRequest(credentials) {
+  return {
+    type: types.LIKE_REQUEST,
+    credentials,
+  }
+}
+
+export function likeSuccess(liked_posts) {
+  return {
+    type: types.LIKE_SUCCESS,
+    liked_posts,
+  }
+}
+
+export function likeError(error) {
+  return {
+    type: types.LIKE_ERROR,
+    error,
+  }
+}
+
+export function unlikeRequest(credentials) {
+  return {
+    type: types.UNLIKE_REQUEST,
+    credentials,
+  }
+}
+
+export function unlikeSuccess(liked_posts) {
+  return {
+    type: types.UNLIKE_SUCCESS,
+    liked_posts,
+  }
+}
+
+export function unlikeError(error) {
+  return {
+    type: types.UNLIKE_ERROR,
+    error,
+  }
+}

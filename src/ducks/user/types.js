@@ -18,4 +18,12 @@ export const UNFOLLOW_REQUEST = '@@user/UNFOLLOW_REQUEST'
 export const UNFOLLOW_SUCCESS = '@@user/UNFOLLOW_SUCCESS'
 export const UNFOLLOW_ERROR = '@@user/UNFOLLOW_ERROR'
 
+export const LIKE_REQUEST = '@@user/LIKE_REQUEST'
+export const LIKE_SUCCESS = '@@user/LIKE_SUCCESS'
+export const LIKE_ERROR = '@@user/LIKE_ERROR'
+
+export const UNLIKE_REQUEST = '@@user/UNLIKE_REQUEST'
+export const UNLIKE_SUCCESS = '@@user/UNLIKE_SUCCESS'
+export const UNLIKE_ERROR = '@@user/UNLIKE_ERROR'
+
 export const LOGOUT = '@@user/LOGOUT'

@@ -10,6 +10,9 @@ export const ADD_COMMENT = '@@app/ADD_COMMENT'
 export const FOLLOW = '@@app/FOLLOW'
 export const UNFOLLOW = '@@app/UNFOLLOW'
 
+export const LIKE = '@@app/LIKE'
+export const UNLIKE = '@@app/UNLIKE'
+
 export const FETCH_POSTS = '@@app/FETCH_POSTS'
 export const FETCH_POST = '@@app/FETCH_POST'
 

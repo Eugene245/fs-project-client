@@ -1,5 +1,6 @@
 import { call, put, select } from 'redux-saga/effects'
 import * as actions from './actions'
+import * as userActions from '../user/actions'
 import * as services from './services'
 import * as selectors from './selectors'
 
@@ -59,9 +60,41 @@ export function* addCommentRequestSaga(credentials) {
   }
 }
 
+export function* likeRequestSaga(credentials) {
+  yield put(actions.likeRequest())
+  yield put(userActions.likeRequest())
+  try {
+    const { liked_posts, postId, likes } = yield call(services.like, credentials)
+    yield put(userActions.likeSuccess(liked_posts))
+    yield put(actions.likeSuccess(postId, likes))
+    return { payload: { liked_posts, likes } }
+  } catch (error) {
+    yield put(actions.likeError(error))
+    yield put(userActions.likeError(error))
+    return { error }
+  }
+}
+
+export function* unlikeRequestSaga(credentials) {
+  yield put(actions.unlikeRequest())
+  yield put(userActions.unlikeRequest())
+  try {
+    const { liked_posts, postId, likes } = yield call(services.unlike, credentials)
+    yield put(userActions.unlikeSuccess(liked_posts))
+    yield put(actions.unlikeSuccess(postId, likes))
+    return { payload: { liked_posts, likes } }
+  } catch (error) {
+    yield put(actions.unlikeError(error))
+    yield put(userActions.unlikeError(error))
+    return { error }
+  }
+}
+
 export default {
   fetchPostsSaga,
   fetchPostByIdSaga,
   addPostRequestSaga,
   addCommentRequestSaga,
+  likeRequestSaga,
+  unlikeRequestSaga,
 }
