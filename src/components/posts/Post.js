@@ -1,42 +1,13 @@
 import React from 'react';
 import '../../styles/post.css';
 import ReadMoreAndLess from 'react-read-more-less';
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import LikeButtonContainer from '../../containers/LikeButtonContainer'
 
 class Post extends React.Component{
-    constructor(props){
-        super(props);
-        this.clickPostHandler = this.clickPostHandler.bind(this);
-        this.clickUserHandler = this.clickUserHandler.bind(this);
-        this.state = { redirectUser: false, redirectPost: false, id: null, user: null }
-    }
-
-    userRedirect() {
-      if(this.state.redirectUser)
-        return <Redirect to={`/profile/${this.state.user}`} />
-    }
-
-    postRedirect() {
-      if(this.state.redirectPost)
-        return <Redirect to={`/posts/${this.state.id}`} />
-    }
-
-    clickPostHandler(e) {
-      e.preventDefault();
-      this.setState({ redirectPost: true, id: e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id') })
-    }
-
-    clickUserHandler(e) {
-      e.preventDefault();
-      const user = e.target.innerText
-      this.setState({ redirectUser: true, user: user })
-    }
-
+  
     render() {
         return <>
-        {this.postRedirect()}
-        {this.userRedirect()}
           <div id="wrapper">
             <div class="post" id={this.props.id}>
               <div class="post-content">
@@ -45,12 +16,16 @@ class Post extends React.Component{
                     <img src="https://image.flaticon.com/icons/svg/126/126486.svg" />
                   </div>
                   <div class="post-content__user-name">
-                    <span onClick={this.clickUserHandler}>{this.props.author}</span>
+                    <Link to={`/profile/${this.props.author}`}>
+                      <span>{this.props.author}</span>
+                    </Link>
                   </div>
                 </div>
                 <div class="post-content__text">
                   <div class="post-content__text-title">
-                      <span class="post-content__text-title-text" onClick={this.clickPostHandler}>{this.props.title}</span>
+                  <Link to={`/posts/${this.props.id}`}>
+                    <span class="post-content__text-title-text">{this.props.title}</span>
+                  </Link>
                   </div>
                   <div class="post-content__content">
                     <span class="post-content__content-text">

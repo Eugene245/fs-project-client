@@ -30,23 +30,21 @@ export function* loginSaga(credentials) {
   }
 }
 
-export function* fetchUserSaga(userName, offset, limit) {
+export function* fetchUserSaga(userName) {
   try {
     yield put(actions.fetchUserRequest())
-    yield put(postActions.fetchPostsRequest())
+    yield put(postActions.fetchUserPostsRequest())
 
-    const { user, posts, pagination } = yield call(
+    const { user, posts } = yield call(
       services.fetchUser,
       userName,
-      offset,
-      limit,
     )
     yield put(actions.fetchUserSuccess(user))
-    yield put(postActions.fetchPostsSuccess(posts, pagination))
-    return { payload: { user, posts, pagination } }
+    yield put(postActions.fetchUserPostsSuccess(posts))
+    return { payload: { user, posts } }
   } catch (error) { 
     yield put(actions.fetchUserError(error))
-    yield put(postActions.fetchPostsError(error))
+    yield put(postActions.fetchUserPostsError(error))
     return { error }
   }
 }

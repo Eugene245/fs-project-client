@@ -21,6 +21,48 @@ export function fetchPostsError(error) {
   }
 }
 
+export function fetchUserPostsRequest() {
+  return {
+    type: types.FETCH_USER_POSTS_REQUEST,
+  }
+}
+
+export function fetchUserPostsSuccess(posts, pagination) {
+  return {
+    type: types.FETCH_USER_POSTS_SUCCESS,
+    posts,
+    pagination,
+  }
+}
+
+export function fetchUserPostsError(error) {
+  return {
+    type: types.FETCH_USER_POSTS_ERROR,
+    error,
+  }
+}
+
+export function fetchMorePostsRequest() {
+  return {
+    type: types.FETCH_MORE_POSTS_REQUEST,
+  }
+}
+
+export function fetchMorePostsSuccess(posts, pagination) {
+  return {
+    type: types.FETCH_MORE_POSTS_SUCCESS,
+    posts,
+    pagination,
+  }
+}
+
+export function fetchMorePostsError(error) {
+  return {
+    type: types.FETCH_MORE_POSTS_ERROR,
+    error,
+  }
+}
+
 export function fetchPostByIdRequest() {
   return {
     type: types.FETCH_POST_BY_ID_REQUEST,

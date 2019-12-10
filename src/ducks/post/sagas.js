@@ -22,6 +22,24 @@ export function* fetchPostsSaga(limit, offset) {
   }
 }
 
+export function* fetchMorePostsSaga(limit, offset) {
+  try {
+    yield put(actions.fetchMorePostsRequest())
+
+    const { posts, pagination } = yield call(
+      services.fetchPosts,
+      limit,
+      offset,
+    )
+
+    yield put(actions.fetchMorePostsSuccess(posts, pagination))
+    return { payload: { posts, pagination } }
+  } catch (error) {
+    yield put(actions.fetchMorePostsError(error))
+    return { error }
+  }
+}
+
 export function* fetchPostByIdSaga(id) {
   try {
     yield put(actions.fetchPostByIdRequest())

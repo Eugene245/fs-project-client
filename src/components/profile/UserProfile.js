@@ -1,7 +1,7 @@
 
 import React from 'react'
 import UserInfo from './UserInfo'
-import PostList from '../posts/PostList'
+import PostContainer from '../../containers/PostContainer'
 
 
 class UserProfile extends React.Component {
@@ -18,17 +18,18 @@ class UserProfile extends React.Component {
             return (
               <>
               <UserInfo user={this.props.receivedUser} />
-              <PostList
-              posts={this.props.posts}
-              // handleFetch={this.handlePostsFetch}
-              // showPagination={hasMorePages}
-              // {...restProps}
-              />
+              {this.props.posts.map(post => (
+            <PostContainer
+              // history={this.props.history}
+              // key={post._id}
+              post={post}
+            />
+          ))}
               </>
             )
             } else {              
               return (
-                <div>loading...</div>
+                <div className="loader"></div>
               )
             }
           })()

@@ -1,6 +1,5 @@
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import UserProfile from '../components/profile/UserProfile'
 import * as userSelectors from '../ducks/user/selectors'
@@ -8,24 +7,11 @@ import * as postSelectors from '../ducks/post/selectors'
 import { actions as appActions } from '../ducks/app'
 
 class UserProfileContainer extends React.Component {
-  static DEFAULT_LIMIT = 5
-
-  static DEFAULT_OFFSET = 0
 
   componentDidMount() {
     const { fetchUser } = this.props
-      fetchUser(
-        this.props.match.params.name,
-        UserProfileContainer.DEFAULT_OFFSET,
-        UserProfileContainer.DEFAULT_LIMIT,
-      )
+    fetchUser(this.props.match.params.name)
   }
-
-  // handlePostsFetch = () => {
-  //   const { fetchPosts, pagination } = this.props
-  //   const offset = pagination.offset + PostListContainer.DEFAULT_LIMIT
-  //   fetchPosts(PostListContainer.DEFAULT_LIMIT, offset)
-  // }
 
   render() {
     const { posts, receivedUser } = this.props
@@ -33,7 +19,6 @@ class UserProfileContainer extends React.Component {
       <UserProfile
         receivedUser={receivedUser}
         posts={posts}
-
       />
     )
   }

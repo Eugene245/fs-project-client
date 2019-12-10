@@ -21,6 +21,10 @@ export function selectHasPostsStatus(state) {
   return !!state.post.postsIds.length
 }
 
+export function selectOffsetPagination(state) {
+  return state.post.pagination.offset
+}
+
 export function selectPost(state, id) {
   return state.post.postsById[id]
 }

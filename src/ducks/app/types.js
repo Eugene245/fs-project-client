@@ -16,4 +16,7 @@ export const UNLIKE = '@@app/UNLIKE'
 export const FETCH_POSTS = '@@app/FETCH_POSTS'
 export const FETCH_POST = '@@app/FETCH_POST'
 
+export const FETCH_MORE_POSTS = '@@app/FETCH_MORE_POSTS'
+export const FETCH_MORE_POST = '@@app/FETCH_MORE_POST'
+
 export const FETCH_USER = '@@app/FETCH_USER'

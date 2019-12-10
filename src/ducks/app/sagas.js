@@ -33,8 +33,7 @@ function* fetchPostSaga(action) {
 }
 
 function* fetchUserByNameSaga(action) {
-  const { name, limit, offset } = action
-  yield call(fetchUserSaga, name, offset, limit)
+  yield call(fetchUserSaga, action.name)
 }
 
 function* followSaga(action) {
@@ -56,6 +55,7 @@ function* unlikeSaga(action) {
 export default function*() {
   yield all([
     takeLatest(types.FETCH_POSTS, fetchFeedSaga),
+    takeLatest(types.FETCH_MORE_POSTS, fetchFeedSaga),
     takeLatest(types.FETCH_POST, fetchPostSaga),
     takeLatest(types.FETCH_USER, fetchUserByNameSaga),
     takeLatest(types.REGISTER_USER, registerUserSaga),

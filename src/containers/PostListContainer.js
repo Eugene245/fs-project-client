@@ -7,34 +7,30 @@ import * as postSelectors from '../ducks/post/selectors'
 import { actions as appActions } from '../ducks/app'
 
 class PostListContainer extends React.Component {
-  static DEFAULT_LIMIT = 5
+  static DEFAULT_LIMIT = 2
 
   static DEFAULT_OFFSET = 0
 
   componentDidMount() {
-    const { fetchPosts } = this.props
+    const { fetchPosts, hasPosts } = this.props
+    if (!hasPosts) {
       fetchPosts(
         PostListContainer.DEFAULT_LIMIT,
         PostListContainer.DEFAULT_OFFSET,
       )
-  }
-
-  handlePostsFetch = () => {
-    const { fetchPosts, pagination } = this.props
-    const offset = pagination.offset + PostListContainer.DEFAULT_LIMIT
-    fetchPosts(PostListContainer.DEFAULT_LIMIT, offset)
+    }
   }
 
   render() {
     const { posts, hasMorePages, ...restProps } = this.props
-    return (
-      <PostList
-        posts={posts}
-        handleFetch={this.handlePostsFetch}
-        showPagination={hasMorePages}
-        {...restProps}
-      />
-    )
+      return (
+        <PostList
+          posts={posts}
+          handleFetch={this.handlePostsFetch}
+          hasMorePages={hasMorePages}
+          {...restProps}
+        />
+      )
   }
 }
 
@@ -51,10 +47,12 @@ const mapStateToProps = state => ({
   pagination: postSelectors.selectPagination(state),
   hasMorePages: postSelectors.selectHasMorePagesStatus(state),
   hasPosts: postSelectors.selectHasPostsStatus(state),
+  offset: postSelectors.selectOffsetPagination(state)
 })
 
 const mapDispatchToProps = {
   fetchPosts: appActions.fetchPosts,
+  fetchMorePosts: appActions.fetchMorePosts,
 }
 
 export default connect(

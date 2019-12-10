@@ -76,6 +76,14 @@ export function fetchPosts(limit, offset) {
   }
 }
 
+export function fetchMorePosts(limit, offset) {
+  return {
+    type: types.FETCH_MORE_POSTS,
+    limit,
+    offset,
+  }
+}
+
 export function fetchPostById(id) {
   return {
     type: types.FETCH_POST,
@@ -83,11 +91,9 @@ export function fetchPostById(id) {
   }
 }
 
-export function fetchUser(name, offset, limit) {
+export function fetchUser(name) {
   return {
     type: types.FETCH_USER,
     name,
-    offset,
-    limit,
   }
 }
