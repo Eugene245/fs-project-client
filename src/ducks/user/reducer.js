@@ -4,6 +4,7 @@ import initialState from './state'
 export default function(state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_REQUEST:
+    case types.AUTH_REQUEST:
     case types.REGISTER_REQUEST:
     case types.FOLLOW_REQUEST:
     case types.UNFOLLOW_REQUEST:
@@ -15,6 +16,12 @@ export default function(state = initialState, action) {
       }
     case types.LOGIN_SUCCESS:  
     case types.REGISTER_SUCCESS:
+      return {
+        ...state,
+        user: action.user,
+        isAuthenticated: true,
+      } 
+    case types.AUTH_SUCCESS:
       return {
         ...state,
         user: action.user,
@@ -45,6 +52,7 @@ export default function(state = initialState, action) {
       }
     case types.LOGIN_ERROR:
     case types.REGISTER_ERROR:
+    case types.AUTH_ERROR: 
     case types.FOLLOW_ERROR:
     case types.UNFOLLOW_ERROR:
     case types.LIKE_ERROR:

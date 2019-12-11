@@ -12,29 +12,40 @@ import AddPostContainer from './containers/AddPostContainer'
 import PostByIdContainer from './containers/PostByIdContainer'
 import UserProfileContainer from './containers/UserProfileContainer'
 
-const App = () => {
-  return (
-    <React.Fragment>
-      <BrowserRouter>
-        <NavBarContainer />
-          <main className="container">        
-            <Switch>
-              <Route path="/home" component={Home} />
-              <Route path="/posts" exact component={PostListContainer} />
-              <Route path="/login" component={LoginContainer} />
-              <Route path="/signup" component={SignUpContainer} />
-              <Route path="/list" component={FeedContainer} />
-              <Route path="/profile/:name" component={UserProfileContainer} />
-              <Route path="/add-post" component={AddPostContainer} />
-              <Route path="/posts/:id" component={PostByIdContainer} />
-              <Route path="/not-found" component={NotFound} />
-              <Route path="/" component={false ? Home : NotFound} />
-              <Redirect to="/not-found" />
-            </Switch>
-          </main>
-        </BrowserRouter>
-      </React.Fragment>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+    const { AuthUser, user } = this.props
+    if(localStorage.getItem('token') !== null && Object.keys(user.user).length === 0) {
+      AuthUser({ token: localStorage.getItem('token') })
+    }
+  }
+
+  render() { 
+      return (
+        <React.Fragment>
+          <BrowserRouter>
+            <NavBarContainer />
+              <main className="container">        
+                <Switch>
+                  <Route path="/home" component={Home} />
+                  <Route path="/posts" exact component={PostListContainer} />
+                  <Route path="/login" component={LoginContainer} />
+                  <Route path="/signup" component={SignUpContainer} />
+                  <Route path="/list" component={FeedContainer} />
+                  <Route path="/profile/:name" component={UserProfileContainer} />
+                  <Route path="/add-post" component={AddPostContainer} />
+                  <Route path="/posts/:id" component={PostByIdContainer} />
+                  <Route path="/not-found" component={NotFound} />
+                  <Route path="/" component={false ? Home : NotFound} />
+                  <Redirect to="/not-found" />
+                </Switch>
+              </main>
+            </BrowserRouter>
+          </React.Fragment>
+      );
+    
+  }
 }
 
 export default App;

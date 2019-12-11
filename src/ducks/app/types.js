@@ -3,6 +3,7 @@ export const INIT_APP = '@@app/INIT_APP'
 export const REGISTER_USER = '@@app/REGISTER_USER'
 export const LOGIN_USER = '@@app/LOGIN_USER'
 export const LOGOUT_USER = '@@app/LOGOUT_USER'
+export const AUTH_USER = '@@app/AUTH_USER'
 
 export const ADD_POST = '@@app/ADD_POST'
 export const ADD_COMMENT = '@@app/ADD_COMMENT'

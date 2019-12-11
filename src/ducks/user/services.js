@@ -4,6 +4,12 @@ export function login(credentials) {
   return axios.post('http://localhost:5000/api/users/login', credentials)
 }
 
+export function auth(token) {
+  return axios
+    .post('http://localhost:5000/api/users/token', token)
+    .then(response => response.data)
+}
+
 export function register(credentials) {
   return axios.post('http://localhost:5000/api/users/registration', credentials)
 }

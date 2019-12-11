@@ -5,7 +5,9 @@ import { NavLink } from 'react-router-dom'
 import store from '../store/index'
 import * as types from '../ducks/user/types'
 
-const NavigationBar = props => {
+class NavigationBar extends React.Component{
+
+render() {
   return (
     <nav className='App-navigationBar'>  
 
@@ -23,23 +25,21 @@ const NavigationBar = props => {
 
       {
         (() => {
-          switch (props.user.isAuthenticated) {
+          switch (this.props.user.isAuthenticated) {
             case true:
               return (            
                 <div className='App-navigationBar-button'>
-                  <span>{props.name}</span>{' '}
-                  <Button color="secondary" onClick={() =>
-                    store.dispatch({type: types.LOGOUT})
-                  }>logout</Button>
+                  <span>{this.props.user.user.name}</span>{' '}
+                  <Button color="secondary" onClick={this.props.logout}>logout</Button>
                   <NavLink to="/add-post" activeClassName="active">
                   <div className='App-navigationBar-button'>
                     <Button color="danger">Add Post</Button>
                   </div>
                   </NavLink>
 
-                  <NavLink to={`/profile/${props.user.user.name}`} activeClassName="active">
+                  <NavLink to={`/profile/${this.props.user.user.name}`} activeClassName="active">
                   <div className='App-navigationBar-button App-navigationBar-button__profile'>
-                    <Button color="info">{props.user.user.name}</Button>
+                    <Button color="info">{this.props.user.user.name}</Button>
                   </div>
                   </NavLink>
                 
@@ -81,6 +81,7 @@ const NavigationBar = props => {
 
       </nav>
   );
+    }
 }
 
 NavigationBar.propTypes = {

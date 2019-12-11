@@ -41,6 +41,27 @@ export function registerError(error) {
   }
 }
 
+export function authRequest(token) {
+  return {
+    type: types.AUTH_REQUEST,
+    token,
+  }
+}
+
+export function authSuccess(user) {
+  return {
+    type: types.AUTH_SUCCESS,
+    user,
+  }
+}
+
+export function authError(error) {
+  return {
+    type: types.AUTH_ERROR,
+    error,
+  }
+}
+
 export function logout() {
   return {
     type: types.LOGOUT,

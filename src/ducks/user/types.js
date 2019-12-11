@@ -2,6 +2,10 @@ export const LOGIN_REQUEST = '@@user/LOGIN_REQUEST'
 export const LOGIN_SUCCESS = '@@user/LOGIN_SUCCESS'
 export const LOGIN_ERROR = '@@user/LOGIN_ERROR'
 
+export const AUTH_REQUEST = '@@user/AUTH_REQUEST'
+export const AUTH_SUCCESS = '@@user/AUTH_SUCCESS'
+export const AUTH_ERROR = '@@user/AUTH_ERROR'
+
 export const REGISTER_REQUEST = '@@user/REGISTER_REQUEST'
 export const REGISTER_SUCCESS = '@@user/REGISTER_SUCCESS'
 export const REGISTER_ERROR = '@@user/REGISTER_ERROR'

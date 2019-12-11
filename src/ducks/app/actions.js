@@ -20,6 +20,13 @@ export function loginUser(credentials) {
   }
 }
 
+export function AuthUser(token) {
+  return {
+    type: types.AUTH_USER,
+    token,
+  }
+}
+
 export function logoutUser() {
   return {
     type: types.LOGOUT_USER,

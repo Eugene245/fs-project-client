@@ -1,18 +1,18 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import NavigationBar from '../components/NavigationBar';
+import App from '../App';
 import { selectUser } from '../ducks/user/selectors'
-import { logoutUser } from '../ducks/app/actions'
+import { AuthUser } from '../ducks/app/actions'
 
 const mapStateToProps = (state) => ({
   user: selectUser(state)
 })
 
 const mapDispatchToProps = {
-  logout: logoutUser,
+  AuthUser: AuthUser
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NavigationBar)
+)(App)

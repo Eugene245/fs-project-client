@@ -30,6 +30,17 @@ export function* loginSaga(credentials) {
   }
 }
 
+export function* authSaga(token) {
+  try {
+    const { user } = yield services.auth(token)
+    yield put(actions.authSuccess(user))
+    return { payload: { user } }
+  } catch (error) {
+    yield put(actions.authError(error.response.data.msg))
+    return { error }
+  }
+}
+
 export function* fetchUserSaga(userName) {
   try {
     yield put(actions.fetchUserRequest())
@@ -72,6 +83,7 @@ export function* unfollowRequestSaga(credentials) {
 }
 
 export function* logoutSaga() {
+  yield localStorage.removeItem('token')
   yield put(actions.logout())
 }
 
