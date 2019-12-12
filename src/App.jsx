@@ -11,6 +11,7 @@ import SignUpContainer from './containers/SignUpContainer'
 import AddPostContainer from './containers/AddPostContainer'
 import PostByIdContainer from './containers/PostByIdContainer'
 import UserProfileContainer from './containers/UserProfileContainer'
+import FollowingContainer from './containers/FollowingContainer'
 
 class App extends React.Component {
 
@@ -29,10 +30,10 @@ class App extends React.Component {
               <main className="container">        
                 <Switch>
                   <Route path="/home" component={Home} />
-                  <Route path="/posts" exact component={PostListContainer} />
+                  <Route path="/posts" exact component={() => <PostListContainer users={[]} />} />
                   <Route path="/login" component={LoginContainer} />
                   <Route path="/signup" component={SignUpContainer} />
-                  <Route path="/list" component={FeedContainer} />
+                  <Route path="/following" component={FollowingContainer} />
                   <Route path="/profile/:name" component={UserProfileContainer} />
                   <Route path="/add-post" component={AddPostContainer} />
                   <Route path="/posts/:id" component={PostByIdContainer} />

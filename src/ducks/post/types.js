@@ -22,6 +22,8 @@ export const FETCH_POST_BY_ID_REQUEST = '@@post/FETCH_POST_BY_ID_REQUEST'
 export const FETCH_POST_BY_ID_SUCCESS = '@@post/FETCH_POST_BY_IDS_SUCCESS'
 export const FETCH_POST_BY_ID_ERROR = '@@post/FETCH_POST_BY_IDS_ERROR'
 
+export const RESET_POSTS = '@@post/RESET_POSTS'
+
 export const LIKE_REQUEST = '@@post/LIKE_REQUEST'
 export const LIKE_SUCCESS = '@@post/LIKE_SUCCESS'
 export const LIKE_ERROR = '@@post/LIKE_ERROR'

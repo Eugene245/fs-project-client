@@ -28,8 +28,8 @@ function* addCommentSaga(action) {
 }
 
 function* fetchFeedSaga(action) {
-  const { limit, offset } = action
-  yield call(fetchPostsSaga, limit, offset)
+  const { limit, offset, users } = action
+  yield call(fetchPostsSaga, limit, offset, users)
 }
 
 function* fetchPostSaga(action) {

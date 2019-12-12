@@ -4,7 +4,7 @@ import * as userActions from '../user/actions'
 import * as services from './services'
 import * as selectors from './selectors'
 
-export function* fetchPostsSaga(limit, offset) {
+export function* fetchPostsSaga(limit, offset, users) {
   try {
     yield put(actions.fetchPostsRequest())
 
@@ -12,6 +12,7 @@ export function* fetchPostsSaga(limit, offset) {
       services.fetchPosts,
       limit,
       offset,
+      users,
     )
 
     yield put(actions.fetchPostsSuccess(posts, pagination))

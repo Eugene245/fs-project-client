@@ -36,14 +36,36 @@ class FollowButton extends React.Component {
         return (
           <button class="post-info__like-button post-info__like-button_liked" onClick={this.unlikeHandler}>
             <span>❤</span>
-        <span class="post-info__like-button-counter">{post.likes}</span>
+        {/* <span class="post-info__like-button-counter">{post.likes}</span> */}
+        {(() => {
+          if(post === undefined){
+            return (
+              <span></span>
+            )
+          }else {
+            return (
+              <span class="post-info__like-button-counter">{post.likes}</span>
+            )
+          }
+        })()}
           </button>
         ) 
       }else {
         return (
           <button class="post-info__like-button" onClick={this.likeHandler}>
             <span>❤</span>
-        <span class="post-info__like-button-counter">{post.likes}</span>
+        {/* <span class="post-info__like-button-counter">{post.likes}</span> */}
+        {(() => {
+          if(post === undefined){
+            return (
+              <span></span>
+            )
+          }else {
+            return (
+              <span class="post-info__like-button-counter">{post.likes}</span>
+            )
+          }
+        })()}
           </button>
         ) 
       }

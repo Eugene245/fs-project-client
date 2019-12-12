@@ -1,8 +1,6 @@
-
 import React from 'react'
 import UserInfo from './UserInfo'
 import PostContainer from '../../containers/PostContainer'
-
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -10,21 +8,18 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    const { receivedUser, user, posts } = this.props
       return (
         <div className="wrapper">
         {
           (() => {
-            if(Object.entries(this.props.receivedUser).length !== 0 && this.props.posts.length !== 0) {              
+            if(Object.entries(receivedUser).length !== 0 && posts.length !== 0) {              
             return (
               <>
-              <UserInfo user={this.props.receivedUser} />
-              {this.props.posts.map(post => (
-            <PostContainer
-              // history={this.props.history}
-              // key={post._id}
-              post={post}
-            />
-          ))}
+                <UserInfo receivedUser={receivedUser} user={user.user}/>
+                {posts.map(post => (
+                  <PostContainer post={post} />
+                ))}
               </>
             )
             } else {              
@@ -36,7 +31,6 @@ class UserProfile extends React.Component {
         }
         </div>
       )
-
   }
 }
 

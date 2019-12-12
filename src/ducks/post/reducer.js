@@ -38,7 +38,6 @@ export default function(state = initialState, action) {
         ...state,
         error: null,
       }
-
     case types.FETCH_POSTS_SUCCESS:
       return {
         ...state,
@@ -88,6 +87,10 @@ export default function(state = initialState, action) {
         }  
         
       }
+    case types.RESET_POSTS:
+      return (
+        initialState
+      )
     case types.FETCH_POST_BY_ID_ERROR:
     case types.FETCH_POSTS_ERROR:
     case types.FETCH_MORE_POSTS_ERROR:

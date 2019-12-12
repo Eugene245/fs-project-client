@@ -16,9 +16,9 @@ shouldComponentUpdate(nextProps) {
 
   loadFunc() {
     const pages = 2
-    const { fetchMorePosts, pagination } = this.props
+    const { fetchMorePosts, pagination, users } = this.props
     const offset = pagination.offset + pages
-    fetchMorePosts(pages, offset) 
+    fetchMorePosts(pages, offset, { users: users }) 
   }
 
 render() {

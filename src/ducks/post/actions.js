@@ -1,8 +1,9 @@
 import * as types from './types'
 
-export function fetchPostsRequest() {
+export function fetchPostsRequest(users) {
   return {
     type: types.FETCH_POSTS_REQUEST,
+    users,
   }
 }
 
@@ -42,9 +43,10 @@ export function fetchUserPostsError(error) {
   }
 }
 
-export function fetchMorePostsRequest() {
+export function fetchMorePostsRequest(users) {
   return {
     type: types.FETCH_MORE_POSTS_REQUEST,
+    users,
   }
 }
 
@@ -80,6 +82,12 @@ export function fetchPostByIdError(error) {
   return {
     type: types.FETCH_POST_BY_ID_ERROR,
     error,
+  }
+}
+
+export function resetPosts() {
+  return {
+    type: types.RESET_POSTS,
   }
 }
 

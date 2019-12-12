@@ -2,12 +2,12 @@ import React from 'react'
 import { Button } from 'reactstrap'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import store from '../store/index'
-import * as types from '../ducks/user/types'
+import ProfileMenu from './profile/ProfileMenu'
 
 class NavigationBar extends React.Component{
 
 render() {
+  const { user, logout } = this.props
   return (
     <nav className='App-navigationBar'>  
 
@@ -19,31 +19,35 @@ render() {
         <div className='App-navigationBar-button'>Posts</div>
       </NavLink>
 
-      <NavLink to="/list" activeClassName="active">
-        <div className='App-navigationBar-button'>list</div>
-      </NavLink>
-
       {
         (() => {
-          switch (this.props.user.isAuthenticated) {
+          switch (user.isAuthenticated) {
             case true:
-              return (            
-                <div className='App-navigationBar-button'>
-                  <span>{this.props.user.user.name}</span>{' '}
-                  <Button color="secondary" onClick={this.props.logout}>logout</Button>
+              return (       
+                <>
+                <NavLink to="/following" activeClassName="active">
+                  <div className='App-navigationBar-button'>Following</div>
+                </NavLink>
+                
+
+                  <Button color="secondary" onClick={logout}>logout</Button>
+
                   <NavLink to="/add-post" activeClassName="active">
                   <div className='App-navigationBar-button'>
                     <Button color="danger">Add Post</Button>
                   </div>
                   </NavLink>
 
-                  <NavLink to={`/profile/${this.props.user.user.name}`} activeClassName="active">
+                  {/* <NavLink to={`/profile/${user.user.name}`} activeClassName="active">
                   <div className='App-navigationBar-button App-navigationBar-button__profile'>
-                    <Button color="info">{this.props.user.user.name}</Button>
+                    <Button color="info">{user.user.name}</Button>
                   </div>
-                  </NavLink>
+                  </NavLink> */}
+
+                  <ProfileMenu name={user.user.name}/>
                 
-              </div>
+                
+                </>
               )
             case false:
               return (

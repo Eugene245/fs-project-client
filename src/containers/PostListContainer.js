@@ -5,27 +5,35 @@ import { connect } from 'react-redux'
 import PostList from '../components/posts/PostList'
 import * as postSelectors from '../ducks/post/selectors'
 import { actions as appActions } from '../ducks/app'
+import { resetPosts } from '../ducks/post/actions'
 
 class PostListContainer extends React.Component {
   static DEFAULT_LIMIT = 2
 
   static DEFAULT_OFFSET = 0
 
+  // shouldComponentUpdate(nextProps) {
+  //   return this.props.posts.postIds !== nextProps.posts.postIds
+  // }
+
   componentDidMount() {
-    const { fetchPosts, hasPosts } = this.props
-    if (!hasPosts) {
+    const { fetchPosts, resetPosts, users } = this.props
+    resetPosts()
       fetchPosts(
         PostListContainer.DEFAULT_LIMIT,
         PostListContainer.DEFAULT_OFFSET,
+        { users: users },
       )
-    }
+    
   }
 
   render() {
-    const { posts, hasMorePages, ...restProps } = this.props
+    console.log(this.props.posts)
+    const { posts, hasMorePages, users, ...restProps } = this.props
       return (
         <PostList
           posts={posts}
+          users={users}
           handleFetch={this.handlePostsFetch}
           hasMorePages={hasMorePages}
           {...restProps}
@@ -53,6 +61,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchPosts: appActions.fetchPosts,
   fetchMorePosts: appActions.fetchMorePosts,
+  resetPosts: resetPosts,
 }
 
 export default connect(

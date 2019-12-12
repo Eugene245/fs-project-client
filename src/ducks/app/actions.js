@@ -75,19 +75,21 @@ export function unlike(credentials) {
   }
 }
 
-export function fetchPosts(limit, offset) {
+export function fetchPosts(limit, offset, users) {
   return {
     type: types.FETCH_POSTS,
     limit,
     offset,
+    users,
   }
 }
 
-export function fetchMorePosts(limit, offset) {
+export function fetchMorePosts(limit, offset, users) {
   return {
     type: types.FETCH_MORE_POSTS,
     limit,
     offset,
+    users,
   }
 }
 

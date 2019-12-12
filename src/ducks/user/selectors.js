@@ -10,3 +10,7 @@ export function selectToken(state) {
 export function selectReceivedUser(state) {
   return state.user.receivedUser
 }
+
+export function selectUserFollowing(state) {
+  return state.user.user.following
+}

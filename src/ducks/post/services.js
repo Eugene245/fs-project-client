@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export function fetchPosts(limit, offset) {
+export function fetchPosts(limit, offset, users) {
   return axios
-    .get(`http://localhost:5000/api/posts?offset=${offset}&limit=${limit}`)
+    .post(`http://localhost:5000/api/posts?offset=${offset}&limit=${limit}`, users)
     .then(response => response.data)
 }
 
