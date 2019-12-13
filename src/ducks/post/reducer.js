@@ -6,6 +6,7 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case types.LIKE_REQUEST:
     case types.UNLIKE_REQUEST: 
+    case types.DELETE_POST_BY_ID_REQUEST:
     case types.FETCH_POST_BY_ID_REQUEST:
       return {
         ...state,
@@ -86,6 +87,12 @@ export default function(state = initialState, action) {
           limit: action.pagination.limit,
         }  
         
+      }
+    case types.DELETE_POST_BY_ID_SUCCESS:
+      return {
+        ...state,
+        postsById: state.postsIds.filter(post => post._id !== action.deletedPostId),
+        // postsIds: state.postsIds.filter(id => id !== action.deletedPostId)
       }
     case types.RESET_POSTS:
       return (

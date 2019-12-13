@@ -4,12 +4,18 @@ import { NavLink } from 'react-router-dom'
 function ProfileMenu(props) {
   const { name } = props
   return (
-  <div class="dropdown">
+  <div className="dropdown">
     <span>{name}</span>
-    <div class="dropdown-content">
+    <div className="dropdown-content">
       <div>
-        <NavLink to={`/profile/${name}`} activeClassName="active">
+        <NavLink to={`/profile`} activeClassName="active">
           <div className='App-navigationBar-button'>Profile</div>
+        </NavLink>
+        <NavLink to={`/profile/posts`} activeClassName="active">
+          <div className='App-navigationBar-button'>Posts</div>
+        </NavLink>
+        <NavLink to={`/profile/liked-posts`} activeClassName="active">
+          <div className='App-navigationBar-button'>Liked Posts</div>
         </NavLink>
       </div>
     </div>

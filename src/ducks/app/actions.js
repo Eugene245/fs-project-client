@@ -40,6 +40,14 @@ export function addPost(credentials) {
   }
 }
 
+export function deletePost(id, token) {
+  return {
+    type: types.DELETE_POST,
+    id,
+    token,
+  }
+}
+
 export function addComment(credentials) {
   return {
     type: types.ADD_COMMENT,

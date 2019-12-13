@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'reactstrap'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import ProfileMenu from './profile/ProfileMenu'
+import ProfileMenuContainer from '../containers/ProfileMenuContainer'
 
 class NavigationBar extends React.Component{
 
@@ -25,10 +25,9 @@ render() {
             case true:
               return (       
                 <>
-                <NavLink to="/following" activeClassName="active">
-                  <div className='App-navigationBar-button'>Following</div>
-                </NavLink>
-                
+                  <NavLink to="/following" activeClassName="active">
+                    <div className='App-navigationBar-button'>Following</div>
+                  </NavLink>
 
                   <Button color="secondary" onClick={logout}>logout</Button>
 
@@ -38,14 +37,7 @@ render() {
                   </div>
                   </NavLink>
 
-                  {/* <NavLink to={`/profile/${user.user.name}`} activeClassName="active">
-                  <div className='App-navigationBar-button App-navigationBar-button__profile'>
-                    <Button color="info">{user.user.name}</Button>
-                  </div>
-                  </NavLink> */}
-
-                  <ProfileMenu name={user.user.name}/>
-                
+                  <ProfileMenuContainer />
                 
                 </>
               )

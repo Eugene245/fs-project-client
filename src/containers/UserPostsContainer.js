@@ -1,10 +1,10 @@
-
-import ProfileMenu from '../components/profile/ProfileMenu'
-import {connect} from 'react-redux'
+import React from 'react'
+import {connect} from 'react-redux';
+import UserPosts from '../components/profile/UserPosts';
 import { selectUser } from '../ducks/user/selectors'
 
 const mapStateToProps = (state) => ({
-  name: selectUser(state).user.name
+  user: selectUser(state),
 })
 
 const mapDispatchToProps = {}
@@ -12,4 +12,4 @@ const mapDispatchToProps = {}
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ProfileMenu)
+)(UserPosts)

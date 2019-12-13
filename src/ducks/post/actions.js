@@ -85,6 +85,26 @@ export function fetchPostByIdError(error) {
   }
 }
 
+export function deletePostByIdRequest() {
+  return {
+    type: types.DELETE_POST_BY_ID_REQUEST,
+  }
+}
+
+export function deletePostByIdSuccess(deletedPostId) {
+  return {
+    type: types.DELETE_POST_BY_ID_SUCCESS,
+    deletedPostId,
+  }
+}
+
+export function deletePostByIdError(error) {
+  return {
+    type: types.DELETE_POST_BY_ID_ERROR,
+    error,
+  }
+}
+
 export function resetPosts() {
   return {
     type: types.RESET_POSTS,

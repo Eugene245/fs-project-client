@@ -6,12 +6,13 @@ import NotFound from './components/NotFound'
 import Home from './components/Home'
 import PostListContainer from './containers/PostListContainer'
 import LoginContainer from './containers/LoginContainer'
-import FeedContainer from './containers/FeedContainer'
 import SignUpContainer from './containers/SignUpContainer'
 import AddPostContainer from './containers/AddPostContainer'
 import PostByIdContainer from './containers/PostByIdContainer'
 import UserProfileContainer from './containers/UserProfileContainer'
 import FollowingContainer from './containers/FollowingContainer'
+import UserPostsContainer from './containers/UserPostsContainer'
+import UserLikedPostsContainer from './containers/UserLikedPostsContainer'
 
 class App extends React.Component {
 
@@ -34,7 +35,9 @@ class App extends React.Component {
                   <Route path="/login" component={LoginContainer} />
                   <Route path="/signup" component={SignUpContainer} />
                   <Route path="/following" component={FollowingContainer} />
-                  <Route path="/profile/:name" component={UserProfileContainer} />
+                  <Route path="/profile/posts" component={UserPostsContainer} />
+                  <Route path="/profile/liked-posts" component={UserLikedPostsContainer} />
+                  <Route path="/users/:name" component={UserProfileContainer} />
                   <Route path="/add-post" component={AddPostContainer} />
                   <Route path="/posts/:id" component={PostByIdContainer} />
                   <Route path="/not-found" component={NotFound} />

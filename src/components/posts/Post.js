@@ -5,30 +5,54 @@ import { Link } from 'react-router-dom'
 import LikeButtonContainer from '../../containers/LikeButtonContainer'
 
 class Post extends React.Component{
-  
+  constructor(props) {
+    super(props)
+    this.deletePostHandler = this.deletePostHandler.bind(this);
+  }
+
+  deletePostHandler() {
+    const { deletePost, id } = this.props
+    const token = localStorage.getItem('token')
+    deletePost(id, { token: token })
+  }
+
     render() {
+      const { author, title, text, date, id, commentsQty, userName } = this.props
         return <>
           <div id="wrapper">
-            <div class="post" id={this.props.id}>
-              <div class="post-content">
-                <div class="post-content__user">
-                  <div class="post-content__user-avatar">
+            <div className="post" id={id}>
+              <div className="post-content">
+                <div className="post-content__user">
+                  <div className="post-content__user-avatar">
                     <img src="https://image.flaticon.com/icons/svg/126/126486.svg" />
                   </div>
-                  <div class="post-content__user-name">
-                    <Link to={`/profile/${this.props.author}`}>
-                      <span>{this.props.author}</span>
+                  <div className="post-content__user-name">
+                    <Link to={`/users/${author}`}>
+                      <span>{author}</span>
                     </Link>
                   </div>
                 </div>
-                <div class="post-content__text">
-                  <div class="post-content__text-title">
-                  <Link to={`/posts/${this.props.id}`}>
-                    <span class="post-content__text-title-text">{this.props.title}</span>
+                {
+                  (() => {
+                    if(userName === author)
+                      return (
+                        <div className="post-actions">
+                          <span>{userName}</span>
+                          <div className="post-actions-content">
+                            <div onClick={this.deletePostHandler}>Delete</div>
+                          </div>
+                        </div>
+                      )
+                  })()
+                }
+                <div className="post-content__text">
+                  <div className="post-content__text-title">
+                  <Link to={`/posts/${id}`}>
+                    <span className="post-content__text-title-text">{title}</span>
                   </Link>
                   </div>
-                  <div class="post-content__content">
-                    <span class="post-content__content-text">
+                  <div className="post-content__content">
+                    <span className="post-content__content-text">
                       <ReadMoreAndLess
                           ref={this.ReadMore}
                           className="read-more-content"
@@ -36,7 +60,7 @@ class Post extends React.Component{
                           readMoreText="more"
                           readLessText="...less"
                       >
-                          {this.props.text}
+                          {text}
                       </ReadMoreAndLess>
                     </span>
                     <div className="post-content__img">
@@ -44,15 +68,15 @@ class Post extends React.Component{
                     </div>
                   </div>
                 </div>
-                <div class="post-info">
-                  <div class="post-info__date">
-                    <span>{this.props.date}</span>
+                <div className="post-info">
+                  <div className="post-info__date">
+                    <span>{date}</span>
                   </div>
-                  <div class="post-info__likes">
-                    <LikeButtonContainer postId={this.props.id}/>
+                  <div className="post-info__likes">
+                    <LikeButtonContainer postId={id}/>
                     <div className="comments-qty">
                       <svg viewBox="0 0 24 24" width="24" height="24"><g><path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path></g></svg>
-                      <span>{this.props.commentsQty}</span>
+                      <span>{commentsQty}</span>
                     </div>
                   </div>
                 </div>

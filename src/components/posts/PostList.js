@@ -6,7 +6,6 @@ import InfiniteScroll from 'react-infinite-scroller';
 class PostList extends React.Component{
 constructor(props) {
   super(props)
-  
   this.loadFunc = this.loadFunc.bind(this);
 }
 
@@ -16,34 +15,35 @@ shouldComponentUpdate(nextProps) {
 
   loadFunc() {
     const pages = 2
-    const { fetchMorePosts, pagination, users } = this.props
+    const { fetchMorePosts, pagination, users, user, ids } = this.props
     const offset = pagination.offset + pages
-    fetchMorePosts(pages, offset, { users: users }) 
+    if(users)
+      fetchMorePosts(pages, offset, { users: users }) 
+    else if(ids)
+      fetchMorePosts(pages, offset, { ids: ids }) 
+    else if(user)
+      fetchMorePosts(pages, offset, { user: user }) 
   }
 
-render() {
-  const { posts, hasMorePages } = this.props
-    return (
-      <div>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={this.loadFunc}
-          hasMore={hasMorePages}
-          loader={<div className="loader" key={0}></div>}
-        >
-          {posts.map(post => (
-            <PostContainer
-              // history={this.props.history}
-              // key={post._id}
-              post={post}
-            />
-          ))}
-        </InfiniteScroll>
-      </div>
-    );
-            }
-          
-
+  render() {
+    const { posts, hasMorePages } = this.props
+      return (
+        <div>
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={this.loadFunc}
+            hasMore={hasMorePages}
+            loader={<div className="loader" key={0}></div>}
+          >
+            {posts.map(post => (
+              <PostContainer
+                post={post}
+              />
+            ))}
+          </InfiniteScroll>
+        </div>
+      );
+  }
 }
 
 export default PostList;

@@ -11,6 +11,8 @@ export const ADD_COMMENT = '@@app/ADD_COMMENT'
 export const FOLLOW = '@@app/FOLLOW'
 export const UNFOLLOW = '@@app/UNFOLLOW'
 
+export const DELETE_POST = '@@app/DELETE_POST'
+
 export const LIKE = '@@app/LIKE'
 export const UNLIKE = '@@app/UNLIKE'
 

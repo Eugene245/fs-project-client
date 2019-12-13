@@ -53,6 +53,18 @@ export function* fetchPostByIdSaga(id) {
   }
 }
 
+export function* deletePostByIdSaga(id, token) {
+  try {
+    yield put(actions.deletePostByIdRequest())
+    const {deletedPostId} = yield call(services.deletePostById, id, token)
+    yield put(actions.deletePostByIdSuccess(deletedPostId))
+    return { payload: deletedPostId }
+  } catch (error) {
+    yield put(actions.deletePostByIdError(error))
+    return { error }
+  }
+}
+
 export function* addPostRequestSaga(credentials) {
   try {
     const {

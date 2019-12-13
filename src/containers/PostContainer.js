@@ -1,35 +1,24 @@
 import React from 'react'
 import Post from '../components/posts/Post'
 import {connect} from 'react-redux'
+import { selectUser } from '../ducks/user/selectors'
+import { deletePost } from '../ducks/app/actions'
 
-export class PostContainer extends React.Component {
-  constructor(props){
-    super(props)
-  }
+const mapStateToProps = (state, ownProps) => ({
+  userName: selectUser(state).user.name,
+  author: ownProps.post.userName,
+  title: ownProps.post.title,
+  text: ownProps.post.postText,
+  date: ownProps.post.creation_date,
+  id: ownProps.post._id,
+  commentsQty: ownProps.post.comments.length ,
+})
 
-
-  render() {
-    return (
-      <div>      
-        <Post 
-          author={this.props.post.userName}
-          title={this.props.post.title}
-          text={this.props.post.postText}
-          date={this.props.post.creation_date}
-          id={this.props.post._id}
-          likes={this.props.post.likes}
-          commentsQty={this.props.post.comments.length} 
-        />
-      </div>
-    );
-  }
+const mapDispatchToProps = {
+  deletePost: deletePost
 }
-
-const mapStateToProps = () => ({})
-
-const mapDispatchToProps = {}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PostContainer)
+)(Post)

@@ -16,6 +16,12 @@ export function sendPost(credentials) {
   return axios.post('http://localhost:5000/api/posts/add', credentials)
 }
 
+export function deletePostById(id, token) {
+  return axios
+    .post(`http://localhost:5000/api/posts/delete/${id}`, token)
+    .then(response => response.data)
+}
+
 export function sendComment(credentials) {
   return axios.post('http://localhost:5000/api/posts/new-comment', credentials)
 }

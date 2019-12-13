@@ -1,9 +1,9 @@
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import PostList from '../components/posts/PostList'
 import * as postSelectors from '../ducks/post/selectors'
+import { selectUser } from '../ducks/user/selectors'
 import { actions as appActions } from '../ducks/app'
 import { resetPosts } from '../ducks/post/actions'
 
@@ -12,23 +12,32 @@ class PostListContainer extends React.Component {
 
   static DEFAULT_OFFSET = 0
 
-  // shouldComponentUpdate(nextProps) {
-  //   return this.props.posts.postIds !== nextProps.posts.postIds
-  // }
-
   componentDidMount() {
-    const { fetchPosts, resetPosts, users } = this.props
+    const { fetchPosts, resetPosts, users, user, ids } = this.props
     resetPosts()
-      fetchPosts(
-        PostListContainer.DEFAULT_LIMIT,
-        PostListContainer.DEFAULT_OFFSET,
-        { users: users },
-      )
-    
+      if(users) {
+        fetchPosts(
+          PostListContainer.DEFAULT_LIMIT,
+          PostListContainer.DEFAULT_OFFSET,
+          { users: users },
+        )
+      }else if(ids) {
+        fetchPosts(
+          PostListContainer.DEFAULT_LIMIT,
+          PostListContainer.DEFAULT_OFFSET,
+          { ids: ids },
+        )
+      }
+      else if(user) {
+        fetchPosts(
+          PostListContainer.DEFAULT_LIMIT,
+          PostListContainer.DEFAULT_OFFSET,
+          { user: user },
+        )
+      }
   }
 
   render() {
-    console.log(this.props.posts)
     const { posts, hasMorePages, users, ...restProps } = this.props
       return (
         <PostList
@@ -55,7 +64,7 @@ const mapStateToProps = state => ({
   pagination: postSelectors.selectPagination(state),
   hasMorePages: postSelectors.selectHasMorePagesStatus(state),
   hasPosts: postSelectors.selectHasPostsStatus(state),
-  offset: postSelectors.selectOffsetPagination(state)
+  offset: postSelectors.selectOffsetPagination(state),
 })
 
 const mapDispatchToProps = {

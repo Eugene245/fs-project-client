@@ -3,7 +3,6 @@ import FollowButtonContainer from '../../containers/FollowButtonContainer'
 
 export default function UserInfo(props) {
   const { receivedUser, user } = props
-  console.log(receivedUser.name !== user.name)
   return (
     <div className="wrapper">
       <div className="user-info-page__name">
