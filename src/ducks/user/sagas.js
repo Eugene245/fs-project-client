@@ -41,6 +41,17 @@ export function* authSaga(token) {
   }
 }
 
+export function* editProfileSaga(credentials) {
+  try {
+    const { user } = yield services.editProfile(credentials)
+    yield put(actions.editProfileSuccess(user))
+    return { payload: user }
+  } catch (error) {
+    yield put(actions.editProfileError(error.response.data.msg))
+    return { error }
+  }
+}
+
 export function* fetchUserSaga(userName) {
   try {
     yield put(actions.fetchUserRequest())

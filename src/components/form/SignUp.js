@@ -1,6 +1,5 @@
 import React from "react";
-
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import '../../styles/forms/register-form.css'
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -45,15 +44,16 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div>
-        
-            <form className="signUpForm" onSubmit={this.handleSubmit}>
-              <input type="text" placeholder="name" name="username" onChange={this.handleChange}/>
-              <input type="text" placeholder="e-mail" name="email" onChange={this.handleChange}/>
-              <input type="password" placeholder="password" name="password" onChange={this.handleChange}/>
-              <input className="App-signin-button" type="submit" value="Sign up" />
-            </form>
-          
+      <div className="signup-form-container">
+        <div className="signup-form-container__title">
+          <h2>Sign Up</h2>
+        </div>
+        <form className="signUpForm" onSubmit={this.handleSubmit}>
+          <input type="text" className="signup-form__input"  placeholder="name" name="username" onChange={this.handleChange}/>
+          <input type="text" className="signup-form__input"  placeholder="e-mail" name="email" onChange={this.handleChange}/>
+          <input type="password" className="signup-form__input"  placeholder="password" name="password" onChange={this.handleChange}/>
+          <input className="signup-form__submit-button" type="submit" value="Sign up" />
+        </form>
       </div>
     )
   }

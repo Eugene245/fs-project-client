@@ -11,13 +11,9 @@ render() {
   return (
     <nav className='App-navigationBar'>  
 
-      <NavLink to="/home" activeClassName="active">
+      <NavLink to="/feed" activeClassName="active">
         <div className='App-navigationBar-button'>Home</div>
       </NavLink>  
-
-      <NavLink to="/Posts" activeClassName="active">
-        <div className='App-navigationBar-button'>Posts</div>
-      </NavLink>
 
       {
         (() => {
@@ -29,48 +25,26 @@ render() {
                     <div className='App-navigationBar-button'>Following</div>
                   </NavLink>
 
-                  <Button color="secondary" onClick={logout}>logout</Button>
-
                   <NavLink to="/add-post" activeClassName="active">
-                  <div className='App-navigationBar-button'>
-                    <Button color="danger">Add Post</Button>
-                  </div>
+                    <div className='App-navigationBar-button'>Add Post</div>
                   </NavLink>
 
+                  <button className="App-navigationBar-logout-button" onClick={logout}>logout</button>
                   <ProfileMenuContainer />
-                
+                  
                 </>
               )
             case false:
               return (
                 <div>
                   <NavLink to="/login" activeClassName="active">
-                  <div className='App-navigationBar-button'>
-                    <Button color="primary">Login</Button>
-                  </div>
+                    <div className="App-navigationBar-login-button">Login</div>
                   </NavLink>
                   <NavLink to="/signup" activeClassName="active">
-                  <div className='App-navigationBar-button'>
-                    <Button color="primary">Sign Up</Button>
-                  </div>
+                    <div className="App-navigationBar-signup-button">Sign Up</div>
                   </NavLink>
-                  
                 </div>
               )
-              // case 'login error':
-              // return (
-              //   <div>
-              //     {
-              //       alert(props.user.error)
-              //     }
-              //     <NavLink to="/login" activeClassName="active">
-              //     <div className='App-navigationBar-button'>
-              //       <Button color="primary">login</Button>
-              //     </div>
-              //     </NavLink>
-              //     <SignUp/> 
-              //   </div>
-              // )
           }
         })()
       }  

@@ -1,8 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import { Button } from 'reactstrap'
-import '../../styles/form.css'
-
+import '../../styles/forms/login-form.css'
 
 class Login extends React.Component {
   constructor(props) {
@@ -33,21 +31,24 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <br />
+      <div className="login-form-container">
+        <div className="login-form-container__title">
+          <h2>Log In</h2>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <input type="text" 
+            className="login-form__input" 
             name="email" 
             placeholder="email" 
             onChange={this.handleChange} />
           {' '}
           <input type="password" 
-            className="inputPass" 
+            className="login-form__input" 
             name="password" 
             placeholder="password" 
             onChange={this.handleChange} />
           {' '}
-          <Button color="primary" type="submit">Sign in</Button>
+          <button className="login-form__submit-button"  type="submit">Sign in</button>
         </form>
       </div>
     )

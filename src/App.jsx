@@ -4,7 +4,6 @@ import './styles/App.css'
 import NavBarContainer from './containers/NavBarContainer'
 import NotFound from './components/NotFound'
 import Home from './components/Home'
-import PostListContainer from './containers/PostListContainer'
 import LoginContainer from './containers/LoginContainer'
 import SignUpContainer from './containers/SignUpContainer'
 import AddPostContainer from './containers/AddPostContainer'
@@ -13,6 +12,8 @@ import UserProfileContainer from './containers/UserProfileContainer'
 import FollowingContainer from './containers/FollowingContainer'
 import UserPostsContainer from './containers/UserPostsContainer'
 import UserLikedPostsContainer from './containers/UserLikedPostsContainer'
+import UserFollowingListContainer from './containers/UserFollowingListContainer'
+import UserProfileEditContainer from './containers/UserProfileEditContainer'
 
 class App extends React.Component {
 
@@ -30,18 +31,19 @@ class App extends React.Component {
             <NavBarContainer />
               <main className="container">        
                 <Switch>
-                  <Route path="/home" component={Home} />
-                  <Route path="/posts" exact component={() => <PostListContainer users={[]} />} />
+                  <Route path="/feed" component={Home} />
                   <Route path="/login" component={LoginContainer} />
                   <Route path="/signup" component={SignUpContainer} />
                   <Route path="/following" component={FollowingContainer} />
+                  <Route path="/profile/edit" component={UserProfileEditContainer} />
                   <Route path="/profile/posts" component={UserPostsContainer} />
+                  <Route path="/profile/following" component={UserFollowingListContainer} />
                   <Route path="/profile/liked-posts" component={UserLikedPostsContainer} />
                   <Route path="/users/:name" component={UserProfileContainer} />
                   <Route path="/add-post" component={AddPostContainer} />
                   <Route path="/posts/:id" component={PostByIdContainer} />
                   <Route path="/not-found" component={NotFound} />
-                  <Route path="/" component={false ? Home : NotFound} />
+                  <Route exact path="/" render={() => <Redirect to="/feed" />} />
                   <Redirect to="/not-found" />
                 </Switch>
               </main>

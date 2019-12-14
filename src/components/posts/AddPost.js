@@ -1,7 +1,6 @@
 import React from "react";
-import { Button } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
-import Notification from '../Notification'
+import '../../styles/forms/add-post-form.css'
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -52,14 +51,14 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="add-post-form-container">
         {this.renderRedirect()}
-        <form className="add-post-form" onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Title" name="title" onChange={this.handleChange}/>
-          <input type="text" placeholder="text" name="text" onChange={this.handleChange}/>
-          <Button color="primary" type="submit">Create Post</Button>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" className="add-post-form__input" placeholder="Title" name="title" onChange={this.handleChange}/>
+          <input type="text" className="add-post-form__input" placeholder="text" name="text" onChange={this.handleChange}/>
+          <button className="add-post-form__submit-button" type="submit">Create Post</button>
         </form>
-      </>
+      </div>
     )
   }
 }

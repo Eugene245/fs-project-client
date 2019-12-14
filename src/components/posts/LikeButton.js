@@ -1,6 +1,6 @@
 import React from 'react'
 
-class FollowButton extends React.Component {
+class LikeButton extends React.Component {
   constructor(props) {
     super(props)
     this.likeHandler = this.likeHandler.bind(this);
@@ -77,4 +77,4 @@ class FollowButton extends React.Component {
   }
 }
 
-export default FollowButton
+export default LikeButton

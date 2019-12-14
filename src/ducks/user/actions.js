@@ -28,15 +28,35 @@ export function registerRequest(credentials) {
   }
 }
 
-export function registerSuccess(user) {
+export function registerSuccess() {
   return {
     type: types.REGISTER_SUCCESS,
-    user,
   }
 }
+
 export function registerError(error) {
   return {
     type: types.REGISTER_ERROR,
+    error,
+  }
+}
+
+export function editProfileRequest(credentials) {
+  return {
+    type: types.EDIT_PROFILE_REQUEST,
+    credentials,
+  }
+}
+
+export function editProfileSuccess(user) {
+  return {
+    type: types.EDIT_PROFILE_SUCCESS,
+    user,
+  }
+}
+export function editProfileError(error) {
+  return {
+    type: types.EDIT_PROFILE_ERROR,
     error,
   }
 }

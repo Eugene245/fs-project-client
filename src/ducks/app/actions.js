@@ -20,6 +20,13 @@ export function loginUser(credentials) {
   }
 }
 
+export function editUser(credentials) {
+  return {
+    type: types.EDIT_USER,
+    credentials,
+  }
+}
+
 export function AuthUser(token) {
   return {
     type: types.AUTH_USER,

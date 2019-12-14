@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/loader.css'
+import {connect} from 'react-redux'
 import PostContainer from '../../containers/PostContainer'
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -46,4 +47,22 @@ shouldComponentUpdate(nextProps) {
   }
 }
 
-export default PostList;
+const mapStateToProps = (state, ownProps) => ({
+  user: ownProps.user,
+  users: ownProps.users,
+  pagination: ownProps.pagination,
+  ids: ownProps.ids,
+  posts: ownProps.posts,
+  hasMorePages: ownProps.hasMorePages,
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchMorePosts: ownProps.fetchMorePosts,
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PostList)
+
+// export default PostList;

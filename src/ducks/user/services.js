@@ -14,6 +14,12 @@ export function register(credentials) {
   return axios.post('http://localhost:5000/api/users/registration', credentials)
 }
 
+export function editProfile(credentials) {
+  return axios
+    .post('http://localhost:5000/api/users/edit', credentials)
+    .then(response => response.data)
+}
+
 export function fetchUser(name, offset, limit) {
   return axios
     .get(`http://localhost:5000/api/users/${name}?offset=${offset}&limit=${limit}`)

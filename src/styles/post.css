@@ -14,7 +14,7 @@
 
 .post-actions {
   position: relative;
-  display: inline-block;
+  float: right;
 }
 
 .post-actions-content {
@@ -37,7 +37,7 @@
 
 .post-content div{
     margin-bottom: 10px;
-    display: inline-block;
+    
 }
 
 .post-content__user{
@@ -46,11 +46,13 @@
 }
 
 .post-content__user-avatar{
+    display: inline-block;
     width: 75px;
     margin: 20px;
 }
 
 .post-content__user-name{
+    display: inline-block;
     text-align: center;
     vertical-align: middle;
     font-size: 25px;
@@ -81,19 +83,6 @@
     font-size: 35px;
     color: black;
     position: relative;
-}
-
-.post-content__text-title-text::after {
-    content:' ';
-    display:block;
-    margin-top: 10px;
-    border: 1.5px solid grey;
-    border-radius: 4px;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    box-shadow:inset 0 10px 10px rgba(0, 0, 0, .05);
-    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
 .post-content__img img{
@@ -152,7 +141,8 @@
   }
 
   .comments-qty {
-      display: block;
+      display: inline-block;
+      margin: 0 10px;
   }
 
   .comment-list {

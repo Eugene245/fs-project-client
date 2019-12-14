@@ -89,10 +89,15 @@ export default function(state = initialState, action) {
         
       }
     case types.DELETE_POST_BY_ID_SUCCESS:
+      let newPostsById = Object.keys(state.postsById).reduce((reduced, curVal) => {
+        if(action.deletedPostId !== curVal) 
+          reduced[curVal] = state.postsById[curVal];
+        return reduced
+      }, {})
       return {
         ...state,
-        postsById: state.postsIds.filter(post => post._id !== action.deletedPostId),
-        // postsIds: state.postsIds.filter(id => id !== action.deletedPostId)
+        postsIds: state.postsIds.filter(id => id !== action.deletedPostId),
+        postsById: newPostsById 
       }
     case types.RESET_POSTS:
       return (

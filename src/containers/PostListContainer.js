@@ -8,9 +8,16 @@ import { actions as appActions } from '../ducks/app'
 import { resetPosts } from '../ducks/post/actions'
 
 class PostListContainer extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   static DEFAULT_LIMIT = 2
 
   static DEFAULT_OFFSET = 0
+
+  componentWillUpdate(nextProps) {
+    return this.props.posts.length !== nextProps.posts.length
+  }
 
   componentDidMount() {
     const { fetchPosts, resetPosts, users, user, ids } = this.props
@@ -38,6 +45,7 @@ class PostListContainer extends React.Component {
   }
 
   render() {
+    
     const { posts, hasMorePages, users, ...restProps } = this.props
       return (
         <PostList
