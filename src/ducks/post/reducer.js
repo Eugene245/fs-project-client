@@ -8,6 +8,7 @@ export default function(state = initialState, action) {
     case types.UNLIKE_REQUEST: 
     case types.DELETE_POST_BY_ID_REQUEST:
     case types.FETCH_POST_BY_ID_REQUEST:
+    case types.DELETE_COMMENT_REQUEST:
       return {
         ...state,
         error: null,
@@ -16,9 +17,9 @@ export default function(state = initialState, action) {
       return {
         ...state,
         postsById: {
-          ...state.postsById,
           [action.post._id]: action.post,
         },
+        postsIds: [action.post._id],
       }
     case types.LIKE_SUCCESS:
     case types.UNLIKE_SUCCESS: 
@@ -121,13 +122,21 @@ export default function(state = initialState, action) {
       }
     case types.ADDPOST_SUCCESS:
     case types.ADDCOMMENT_SUCCESS:
+    case types.DELETE_COMMENT_SUCCESS:
       return {
         ...state,
+        postsById: {
+          [action.id]: {
+            ...state.postsById[action.id],
+            comments: action.comments,
+          }
+        },
         added: true,
         error: null,
       }
     case types.ADDPOST_ERROR:
     case types.ADDCOMMENT_ERROR:
+    case types.DELETE_COMMENT_ERROR:
       return {
         ...state,
         added: false,

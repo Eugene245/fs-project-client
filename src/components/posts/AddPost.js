@@ -18,7 +18,7 @@ class SignUp extends React.Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/Posts' />
+      return <Redirect to='/Feed' />
     }else {
       return <Redirect to='/add-post' />
     }

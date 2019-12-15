@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         user: action.user,
-        isAuthenticated: true,
+        isAuthenticated: 'true',
       } 
     case types.EDIT_PROFILE_SUCCESS:
       return {
@@ -31,7 +31,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         user: action.user,
-        isAuthenticated: true,
+        isAuthenticated: 'true',
       }
     case types.LIKE_SUCCESS:  
     case types.UNLIKE_SUCCESS:
@@ -58,6 +58,11 @@ export default function(state = initialState, action) {
       }
     case types.LOGIN_ERROR:
     case types.REGISTER_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        isAuthenticated: 'error',
+      }
     case types.EDIT_PROFILE_ERROR:
     case types.AUTH_ERROR: 
     case types.FOLLOW_ERROR:
@@ -74,7 +79,7 @@ export default function(state = initialState, action) {
         ...state,
         user: {},
         token: null,
-        isAuthenticated: false,
+        isAuthenticated: 'false',
       }
 
     default:

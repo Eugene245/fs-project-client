@@ -1,0 +1,38 @@
+.post-page {
+  width: 100%;
+  max-width: 700px;
+}
+
+.post-info__like-button-svg_liked {
+  fill: red;
+}
+
+.post-info__like-button-svg_unliked {
+  fill: #0091ca;
+}
+
+.post-info-footer__likes{
+  float: right;
+}
+
+.post-info-footer__comments-qty {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.comment-list {
+  display: block;
+}
+
+.comment-list ul{
+  width: 100%;
+  display: block;
+  padding: 0;
+  list-style-type: none;
+}
+
+.comment-list li {
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  width: 100%;
+}

@@ -80,13 +80,22 @@ export function* addPostRequestSaga(credentials) {
 
 export function* addCommentRequestSaga(credentials) {
   try {
-    const {
-      data: { comment },
-    } = yield services.sendComment(credentials)
-    yield put(actions.AddCommentSuccess(comment))
-    return { payload: comment }
+    const { id, comments } = yield services.sendComment(credentials)
+    yield put(actions.AddCommentSuccess(id, comments))
+    return { payload: id, comments }
   } catch (error) {
     yield put(actions.AddCommentError(error.response.data.msg))
+    return { error }
+  }
+}
+
+export function* deleteCommentRequestSaga(credentials) {
+  try {
+    const { id, comments } = yield services.deleteComment(credentials)
+    yield put(actions.DeleteCommentSuccess(id, comments))
+    return { payload: id, comments }
+  } catch (error) {
+    yield put(actions.DeleteCommentError(error.response.data.msg))
     return { error }
   }
 }

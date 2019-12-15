@@ -17,7 +17,7 @@ class Login extends React.Component {
     if(event.target.name === "password") {
       this.setState({password: event.target.value})
     }
-}
+  }
 
   handleSubmit(event) {
     const { onLoginRequest } = this.props

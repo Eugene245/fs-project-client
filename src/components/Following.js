@@ -8,7 +8,7 @@ function Following(props) {
       <div className="loader"></div>
     )
   }
-  else if(userFollowing.length !== 0) {
+  else if(userFollowing !== undefined) {
     return (
       <PostListContainer users={userFollowing}/>
     )

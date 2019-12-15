@@ -62,6 +62,13 @@ export function addComment(credentials) {
   }
 }
 
+export function deleteComment(credentials) {
+  return {
+    type: types.DELETE_COMMENT,
+    credentials,
+  }
+}
+
 export function follow(credentials) {
   return {
     type: types.FOLLOW,

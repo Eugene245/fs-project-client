@@ -138,15 +138,39 @@ export function AddCommentRequest(credentials) {
   }
 }
 
-export function AddCommentSuccess() {
+export function AddCommentSuccess(id, comments) {
   return {
     type: types.ADDCOMMENT_SUCCESS,
+    id,
+    comments,
   }
 }
 
 export function AddCommentError(error) {
   return {
     type: types.ADDCOMMENT_ERROR,
+    error,
+  }
+}
+
+export function DeleteCommentRequest(credentials) {
+  return {
+    type: types.DELETE_COMMENT_REQUEST,
+    credentials,
+  }
+}
+
+export function DeleteCommentSuccess(id, comments) {
+  return {
+    type: types.DELETE_COMMENT_SUCCESS,
+    id,
+    comments,
+  }
+}
+
+export function DeleteCommentError(error) {
+  return {
+    type: types.DELETE_COMMENT_ERROR,
     error,
   }
 }

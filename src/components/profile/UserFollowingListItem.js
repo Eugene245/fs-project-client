@@ -5,16 +5,18 @@ import FollowButtonContainer from '../../containers/FollowButtonContainer'
 function UserFollowingListItem(props) {
   const { userName } = props
     return (
-      <li>
-        <div>
-        <div className="post-content__user-avatar">
-          <img src="https://image.flaticon.com/icons/svg/126/126486.svg" />
+      <li className="following-list-item">
+        <div className="following-list-item-user">
+          <div className="following-list-item-user__user-avatar">
+            <img src="https://image.flaticon.com/icons/svg/126/126486.svg" />
+          </div>
+          <NavLink to={`/users/${userName}`} activeClassName="active">
+            <span>{userName}</span>
+          </NavLink>
         </div>
-        <NavLink to={`/users/${userName}`} activeClassName="active">
-          <span>{userName}</span>
-        </NavLink>
+        <div className="following-list-item__follow-button-container">
+          <FollowButtonContainer userName={userName}/>
         </div>
-        <FollowButtonContainer userName={userName}/>
       </li>
     );
 }

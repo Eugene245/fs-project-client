@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/profile/following-list.css'
 import UserFollowingListItem from './UserFollowingListItem'
 
 class UserFollowingList extends React.Component{
@@ -11,11 +12,13 @@ constructor(props) {
       if(followingList !== undefined) {
       return (
         <div>
-            {followingList.map(userName => (
-              <UserFollowingListItem
-                userName={userName}
-              />
-            ))}
+            <ul className="following-list">
+              {followingList.map(userName => (
+                <UserFollowingListItem
+                  userName={userName}
+                />
+              ))}
+            </ul>
         </div>
       )
     }else {

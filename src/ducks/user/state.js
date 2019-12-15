@@ -1,7 +1,7 @@
 export default {
   receivedUser: {},
   error: null,
-  isAuthenticated: false,
+  isAuthenticated: 'false',
   user: {},
   token: null,
 }

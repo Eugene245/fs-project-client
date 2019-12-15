@@ -1,0 +1,18 @@
+.following-list-item-user {
+  display: inline-block;
+}
+
+.following-list-item-user__user-avatar{
+  display: inline-block;
+  width: 75px;
+  margin: 20px;
+}
+
+.following-list-item {
+  list-style-type: none;
+}
+
+.following-list-item__follow-button-container {
+  padding: 37px 0px;
+  float: right;
+}

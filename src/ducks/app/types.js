@@ -8,6 +8,7 @@ export const AUTH_USER = '@@app/AUTH_USER'
 
 export const ADD_POST = '@@app/ADD_POST'
 export const ADD_COMMENT = '@@app/ADD_COMMENT'
+export const DELETE_COMMENT = '@@app/DELETE_COMMENT'
 
 export const FOLLOW = '@@app/FOLLOW'
 export const UNFOLLOW = '@@app/UNFOLLOW'

@@ -1,6 +1,4 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
-import { Button } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,16 +7,20 @@ class Notification extends React.Component {
     super(props)
 }
 
-  notify = () => toast(
-    this.props.children
-  );
+toastId = null;
+
+notify = (info) => this.toastId = toast(info, {
+  autoClose: 3000,
+  type: toast.TYPE.ERROR,
+});
 
   render () {
+    const { error } = this.props
     return (
-      <div>
-        <ToastContainer position={toast.POSITION.BOTTOM_RIGHT} />
-        <Button color="danger" onClick={this.notify}>Notify!</Button>
-      </div>
+      <>
+        <ToastContainer position={toast.POSITION.BOTTOM_RIGHT} onload={this.notify(error)}/>
+        
+      </>
     )
   }
 }

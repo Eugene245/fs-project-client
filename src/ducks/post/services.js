@@ -23,7 +23,16 @@ export function deletePostById(id, token) {
 }
 
 export function sendComment(credentials) {
-  return axios.post('http://localhost:5000/api/posts/new-comment', credentials)
+  return axios
+    .post('http://localhost:5000/api/posts/new-comment', credentials)
+    .then(response => response.data)
+}
+
+export function deleteComment(credentials) {
+  const { id, ...data } = credentials
+  return axios
+    .post(`http://localhost:5000/api/posts/delete-comment/${id}`, data)
+    .then(response => response.data)
 }
 
 export function like(credentials) {
