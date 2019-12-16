@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/profile/user-page.css'
 import UserInfo from './UserInfo'
 import PostContainer from '../../containers/PostContainer'
 
@@ -13,7 +14,7 @@ class UserProfile extends React.Component {
         <div className="wrapper">
         {
           (() => {
-            if(Object.entries(receivedUser).length !== 0 && posts.length !== 0) {              
+            if(Object.entries(receivedUser).length !== 0) {              
             return (
               <>
                 <UserInfo receivedUser={receivedUser} user={user.user}/>

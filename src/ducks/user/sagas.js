@@ -71,6 +71,18 @@ export function* fetchUserSaga(userName) {
   }
 }
 
+export function* searchUsersSaga(query) {
+  try {
+    yield put(actions.searchUsersRequest())
+    const [...foundUsers] = yield call(services.searchUsers, query)
+    yield put(actions.searchUsersSuccess(foundUsers))
+    return { payload: { foundUsers } }
+  } catch (error) { 
+    yield put(actions.searchUsersError(error))
+    return { error }
+  }
+}
+
 export function* followRequestSaga(credentials) {
   try {
     const { following } = yield call(services.follow, credentials)

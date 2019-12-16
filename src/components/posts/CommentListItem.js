@@ -42,7 +42,7 @@ class CommentListItem extends React.Component {
           <p>{commentText}</p>
         </div>
         <div class="comment-list-item__date">
-          <DateConverter date={creation_date} />
+          <DateConverter date={creation_date} type={'date-time'}/>
         </div>
       </li>
     );

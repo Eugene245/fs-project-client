@@ -11,7 +11,7 @@ function UserFollowingListItem(props) {
             <img src="https://image.flaticon.com/icons/svg/126/126486.svg" />
           </div>
           <NavLink to={`/users/${userName}`} activeClassName="active">
-            <span>{userName}</span>
+            <span className="following-list-item-user__user-name">{userName}</span>
           </NavLink>
         </div>
         <div className="following-list-item__follow-button-container">

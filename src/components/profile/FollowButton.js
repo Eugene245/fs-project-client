@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from 'reactstrap'
 
 class FollowButton extends React.Component {
   constructor(props) {
@@ -35,16 +34,16 @@ class FollowButton extends React.Component {
     if(Object.keys(this.props.user.user).length !== 0) {
       if(following.includes(userName)) {
         return (
-          <Button color="secondary" onClick={this.unfollowHandler}>Unfollow</Button>
+          <button className="follow-button follow-button_unfollow" onClick={this.unfollowHandler}>Unfollow</button>
         ) 
       }else {
         return (
-          <Button color="primary" onClick={this.followHandler}>Follow</Button>
+          <button className="follow-button follow-button_follow" onClick={this.followHandler}>Follow</button>
         ) 
       }
     }else {
       return (
-        <div>You need to login</div>
+        <button className="follow-button" disabled="disabled" contextmenu="edit">Follow</button>
       ) 
     }
   }

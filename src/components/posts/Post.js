@@ -64,14 +64,11 @@ class Post extends React.Component{
                           {text}
                       </ReadMoreAndLess>
                     </span>
-                    <div className="post-content__img">
-                      {/* <img src="https://cdn.pixabay.com/photo/2017/02/01/22/02/mountain-landscape-2031539_960_720.jpg" /> */}
-                    </div>
                   </div>
                 </div>
                 <div className="post-info">
                   <div className="post-info__date">
-                    <DateConverter date={date} />
+                    <DateConverter date={date} type={'date-time'} />
                   </div>
                   <div className="post-info-menu">
                     <div className="post-info-menu__likes">

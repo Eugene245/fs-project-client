@@ -25,3 +25,5 @@ export const FETCH_MORE_POSTS = '@@app/FETCH_MORE_POSTS'
 export const FETCH_MORE_POST = '@@app/FETCH_MORE_POST'
 
 export const FETCH_USER = '@@app/FETCH_USER'
+
+export const SEARCH_USERS = '@@app/SEARCH_USERS'

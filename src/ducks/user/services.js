@@ -26,6 +26,12 @@ export function fetchUser(name, offset, limit) {
     .then(response => response.data)
 }
 
+export function searchUsers(query) {
+  return axios
+    .get(`http://localhost:5000/api/users/search/${query}`)
+    .then(response => response.data)
+}
+
 export function follow(credentials) {
   return axios
     .post('http://localhost:5000/api/users/following/follow', credentials)

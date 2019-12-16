@@ -2,6 +2,10 @@
   display: inline-block;
 }
 
+.following-list-item-user__user-name {
+  font-size: 30px;
+}
+
 .following-list-item-user__user-avatar{
   display: inline-block;
   width: 75px;

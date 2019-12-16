@@ -11,9 +11,15 @@ export default function(state = initialState, action) {
     case types.UNFOLLOW_REQUEST:
     case types.LIKE_REQUEST:
     case types.UNLIKE_REQUEST:
+    case types.SEARCH_USERS_REQUEST:
       return {
         ...state,
         error: null,
+      }
+    case types.SEARCH_USERS_SUCCESS:
+      return {
+        ...state,
+        foundUsers: action.foundUsers,
       }
     case types.LOGIN_SUCCESS:  
     case types.REGISTER_SUCCESS:
@@ -62,6 +68,11 @@ export default function(state = initialState, action) {
         ...state,
         error: action.error,
         isAuthenticated: 'error',
+      }
+    case types.RESET_FOUND_USERS:
+      return {
+        ...state,
+        foundUsers: [],
       }
     case types.EDIT_PROFILE_ERROR:
     case types.AUTH_ERROR: 

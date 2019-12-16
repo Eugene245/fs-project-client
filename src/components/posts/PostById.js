@@ -40,14 +40,11 @@ class PostById extends React.Component {
               <div className="post-content__content-text">
                 <p>{post.postText}</p>
               </div>
-              <div className="post-content__img">
-                {/* <img src="https://cdn.pixabay.com/photo/2017/02/01/22/02/mountain-landscape-2031539_960_720.jpg" /> */}
-              </div>
             </div>
           </div>
           <div class="post-info">
               <div class="post-info__date">
-                <DateConverter date={post.creation_date} />
+                <DateConverter date={post.creation_date} type={'date-time'} />
               </div>
               <div className="post-info-footer">
                 <div className="post-info-footer__comment-add-form">

@@ -128,3 +128,10 @@ export function fetchUser(name) {
     name,
   }
 }
+
+export function searchUsers(query) {
+  return {
+    type: types.SEARCH_USERS,
+    query,
+  }
+}

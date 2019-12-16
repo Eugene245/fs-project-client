@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import ProfileMenuContainer from '../containers/ProfileMenuContainer'
 import Notification from './Notification'
+import SearchContainer from '../containers/SearchContainer'
 
 class NavigationBar extends React.Component{
 
@@ -15,6 +16,8 @@ render() {
       <NavLink to="/feed" activeClassName="active">
         <div className='App-navigationBar-button'>Home</div>
       </NavLink>  
+
+      <SearchContainer />
 
       {
         (() => {
@@ -37,24 +40,21 @@ render() {
               )
             case 'false':
               return (
-                <div>
+                <div className="App-navigationBar-auth-buttons">
                   <NavLink to="/login" activeClassName="active">
-                    <div className="App-navigationBar-login-button">Login</div>
+                    <button className="App-navigationBar-login-button">Login</button>
                   </NavLink>
                   <NavLink to="/signup" activeClassName="active">
-                    <div className="App-navigationBar-signup-button">Sign Up</div>
+                    <button className="App-navigationBar-signup-button">Sign Up</button>
                   </NavLink>
                 </div>
               )
               case 'error':
               return (
                 <div>
-                  {/* <div style="display: none">
-                    
-                  </div> */}
                   
                   <NavLink to="/login" activeClassName="active">
-                    <div className="App-navigationBar-login-button">Login</div>
+                    <button className="App-navigationBar-login-button">Login</button>
                   </NavLink>
                   <NavLink to="/signup" activeClassName="active">
                     <div className="App-navigationBar-signup-button">Sign Up</div>

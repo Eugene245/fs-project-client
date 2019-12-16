@@ -18,6 +18,12 @@ export const FETCH_USER_REQUEST = '@@user/FETCH_USER_REQUEST'
 export const FETCH_USER_SUCCESS = '@@user/FETCH_USER_SUCCESS'
 export const FETCH_USER_ERROR = '@@user/FETCH_USER_ERROR'
 
+export const SEARCH_USERS_REQUEST = '@@post/SEARCH_USERS_REQUEST'
+export const SEARCH_USERS_SUCCESS = '@@post/SEARCH_USERS_SUCCESS'
+export const SEARCH_USERS_ERROR = '@@post/SEARCH_USERS_ERROR'
+
+export const RESET_FOUND_USERS = '@@post/RESET_FOUND_USERS'
+
 export const FOLLOW_REQUEST = '@@user/FOLLOW_REQUEST'
 export const FOLLOW_SUCCESS = '@@user/FOLLOW_SUCCESS'
 export const FOLLOW_ERROR = '@@user/FOLLOW_ERROR'

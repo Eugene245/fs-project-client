@@ -2,7 +2,6 @@ import { call, put, select } from 'redux-saga/effects'
 import * as actions from './actions'
 import * as userActions from '../user/actions'
 import * as services from './services'
-import * as selectors from './selectors'
 
 export function* fetchPostsSaga(limit, offset, users) {
   try {

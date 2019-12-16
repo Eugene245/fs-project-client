@@ -108,6 +108,32 @@ export function fetchUserError(error) {
   }
 }
 
+export function searchUsersRequest() {
+  return {
+    type: types.SEARCH_USERS_REQUEST,
+  }
+}
+
+export function searchUsersSuccess(foundUsers) {
+  return {
+    type: types.SEARCH_USERS_SUCCESS,
+    foundUsers,
+  }
+}
+
+export function searchUsersError(error) {
+  return {
+    type: types.SEARCH_USERS_ERROR,
+    error,
+  }
+}
+
+export function resetFoundUsers() {
+  return {
+    type: types.RESET_FOUND_USERS,
+  }
+}
+
 export function followRequest(credentials) {
   return {
     type: types.FOLLOW_REQUEST,

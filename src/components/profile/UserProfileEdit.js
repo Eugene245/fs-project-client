@@ -4,15 +4,12 @@ import '../../styles/forms/profile-edit-form.css'
 class UserProfileEdit extends React.Component{
 constructor(props) {
   super(props)
-  this.state = { name: this.props.user.name, email: this.props.user.email, description: this.props.user.description }; 
+  this.state = { email: this.props.user.email, description: this.props.user.description }; 
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
 }
 
 handleChange(event) {
-  if (event.target.name === "name") {
-    this.setState({ name: event.target.value })
-  }
   if(event.target.name === "email") {
     this.setState({email: event.target.value})
   }
@@ -25,7 +22,6 @@ handleSubmit(event) {
   const { editUser } = this.props
   event.preventDefault();
   const user = {
-    name: this.state.name,
     email: this.state.email,
     description: this.state.description,
     token: localStorage.getItem('token')
@@ -39,22 +35,19 @@ handleSubmit(event) {
       if(Object.keys(user).length !== 0) {
       return (
         <div className="profile-edit-container">
+          <h2>Change Your Profile</h2>
           <form onSubmit={this.handleSubmit}>
             <input type="text" 
               className="profile-edit__input"
-              name="name" 
-              value={this.state.name}
-              onChange={this.handleChange} />
-            {' '}
-            <input type="text" 
-              className="profile-edit__input"
               name="email" 
+              placeholder="email"
               value={this.state.email}
               onChange={this.handleChange} />
             {' '}
             <textarea type="text" 
               className="profile-edit__text-area"
               name="description" 
+              placeholder="description"
               value={this.state.description}
               onChange={this.handleChange} />
             {' '}
