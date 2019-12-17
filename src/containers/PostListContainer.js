@@ -45,7 +45,6 @@ class PostListContainer extends React.Component {
   }
 
   render() {
-    
     const { posts, hasMorePages, users, postStatus, ...restProps } = this.props
       if(postStatus === 'responded' && posts.length !== 0) {
         return (

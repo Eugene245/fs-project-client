@@ -64,5 +64,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(PostList)
-
-// export default PostList;

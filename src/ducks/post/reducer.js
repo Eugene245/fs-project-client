@@ -41,7 +41,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         error: null,
-        status: 'responded',
+        status: 'pending',
       }
     case types.FETCH_POSTS_SUCCESS:
       return {
