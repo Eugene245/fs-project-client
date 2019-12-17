@@ -5,4 +5,5 @@ export default {
   isAuthenticated: 'false',
   user: {},
   token: null,
+  status: '',
 }

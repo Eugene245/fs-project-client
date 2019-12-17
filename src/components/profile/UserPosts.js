@@ -1,8 +1,9 @@
 import React from 'react'
 import PostListContainer from '../../containers/PostListContainer'
+import { Redirect } from 'react-router-dom'
 
 function UserPosts(props) {
-  const { user } = props
+  const { user, userStatus } = props
   if (!user.isAuthenticated) {
     return (
       <div className="loader"></div>
@@ -12,7 +13,9 @@ function UserPosts(props) {
     return (
       <PostListContainer user={user.user.name}/>
     )
-  }else {
+  }else if(userStatus === '' || userStatus === 'failed'){
+    return <Redirect to='/login'/>
+  }else if(userStatus === 'pending'){
     return (
       <div className="loader"></div>
     )

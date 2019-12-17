@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from 'reactstrap'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import ProfileMenuContainer from '../containers/ProfileMenuContainer'
@@ -51,17 +50,18 @@ render() {
               )
               case 'error':
               return (
-                <div>
-                  
+                <>
+                <div className="App-navigationBar-auth-buttons">       
                   <NavLink to="/login" activeClassName="active">
                     <button className="App-navigationBar-login-button">Login</button>
                   </NavLink>
                   <NavLink to="/signup" activeClassName="active">
                     <div className="App-navigationBar-signup-button">Sign Up</div>
                   </NavLink>
-                  <Notification error={user.error}/>
-                  
+
                 </div>
+                <Notification error={user.error}/>
+                </>
               )
           }
         })()

@@ -19,7 +19,6 @@ notify = (info) => this.toastId = toast(info, {
     return (
       <>
         <ToastContainer position={toast.POSITION.BOTTOM_RIGHT} onload={this.notify(error)}/>
-        
       </>
     )
   }

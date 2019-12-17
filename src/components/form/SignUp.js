@@ -1,5 +1,7 @@
 import React from "react";
+import UserRedirect from '../UserRedirect'
 import '../../styles/forms/register-form.css'
+import { ToastContainer, toast } from 'react-toastify';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -7,17 +9,20 @@ class SignUp extends React.Component {
     this.state = {username: '',email: '', password: '', isSubmitted: false};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {
-      modal: false
-    }
-    this.toggle = this.toggle.bind(this);
+    this.errorNotify = this.errorNotify.bind(this);
   }
 
-  toggle() {
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
+
+  validateEmail(email) {
+    const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return check.test(String(email).toLowerCase());
   }
+
+  errorNotify = (info) => this.toastId = toast(info, {
+    autoClose: 3000,
+    type: toast.TYPE.ERROR,
+  });
+  
 
   handleChange(event) {
     if (event.target.name === "username") {
@@ -34,16 +39,23 @@ class SignUp extends React.Component {
   handleSubmit(event) {
     const { onRegisterRequest } = this.props
     event.preventDefault();
-    const user = {
-      name: this.state.username,
-      email: this.state.email,
-      password: this.state.password
+    if(this.validateEmail(this.state.email)) {
+      const user = {
+        name: this.state.username,
+        email: this.state.email,
+        password: this.state.password
+      }
+      onRegisterRequest(user)
+    }else {
+      this.errorNotify('email is not valid!')
     }
-    onRegisterRequest(user)
   }
 
   render() {
     return (
+      <>
+      <UserRedirect route='signup' />
+      <ToastContainer />
       <div className="signup-form-container">
         <div className="signup-form-container__title">
           <h2>Sign Up</h2>
@@ -55,6 +67,7 @@ class SignUp extends React.Component {
           <input className="signup-form__submit-button" type="submit" value="Sign up" />
         </form>
       </div>
+      </>
     )
   }
 }

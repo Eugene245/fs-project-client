@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import PostList from '../components/posts/PostList'
 import * as postSelectors from '../ducks/post/selectors'
-import { selectUser } from '../ducks/user/selectors'
+import { selectPostStatus } from '../ducks/post/selectors'
 import { actions as appActions } from '../ducks/app'
 import { resetPosts } from '../ducks/post/actions'
 
@@ -46,16 +46,28 @@ class PostListContainer extends React.Component {
 
   render() {
     
-    const { posts, hasMorePages, users, ...restProps } = this.props
-      return (
-        <PostList
-          posts={posts}
-          users={users}
-          handleFetch={this.handlePostsFetch}
-          hasMorePages={hasMorePages}
-          {...restProps}
-        />
-      )
+    const { posts, hasMorePages, users, postStatus, ...restProps } = this.props
+      if(postStatus === 'responded' && posts.length !== 0) {
+        return (
+          <PostList
+            posts={posts}
+            users={users}
+            handleFetch={this.handlePostsFetch}
+            hasMorePages={hasMorePages}
+            {...restProps}
+          />
+        )
+      }if(postStatus === 'responded' && posts.length === 0) {
+        return (
+          <div>
+            <h2>No Posts</h2>
+          </div>
+        )
+        }else {
+        return (
+          <div className="loader"></div>
+        )
+      }
   }
 }
 
@@ -69,6 +81,7 @@ PostListContainer.propTypes = {
 
 const mapStateToProps = state => ({
   posts: postSelectors.selectPosts(state),
+  postStatus: selectPostStatus(state),
   pagination: postSelectors.selectPagination(state),
   hasMorePages: postSelectors.selectHasMorePagesStatus(state),
   hasPosts: postSelectors.selectHasPostsStatus(state),

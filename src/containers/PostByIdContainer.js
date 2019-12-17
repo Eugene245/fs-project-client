@@ -13,9 +13,12 @@ class PostByIdContainer extends React.Component {
   }
 
   render() {
+
     return (
       <PostById 
       post={this.props.post}
+      userStatus={this.props.userStatus}
+      postStatus={this.props.postStatus}
       onSendComment={this.props.onSendComment}
       user={this.props.user}/>
     )
@@ -24,7 +27,9 @@ class PostByIdContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({ 
   post: postSelectors.selectPost(state, ownProps.match.params.id),
-  user: userSelectors.selectUser(state)
+  postStatus: postSelectors.selectPostStatus(state),
+  user: userSelectors.selectUser(state),
+  userStatus: userSelectors.selectUserStatus(state),
 })
 
 const mapDispatchToProps = {

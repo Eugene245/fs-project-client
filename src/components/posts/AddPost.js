@@ -18,7 +18,7 @@ class SignUp extends React.Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/Feed' />
+      return <Redirect to='/feed' />
     }else {
       return <Redirect to='/add-post' />
     }
@@ -50,16 +50,25 @@ class SignUp extends React.Component {
   }
 
   render() {
-    return (
-      <div className="add-post-form-container">
-        {this.renderRedirect()}
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" className="add-post-form__input" placeholder="Title" name="title" onChange={this.handleChange}/>
-          <input type="text" className="add-post-form__input" placeholder="text" name="text" onChange={this.handleChange}/>
-          <button className="add-post-form__submit-button" type="submit">Create Post</button>
-        </form>
-      </div>
-    )
+    const { userStatus } = this.props
+    if (userStatus === 'responded') {
+      return (
+        <div className="add-post-form-container">
+          {this.renderRedirect()}
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" className="add-post-form__input" placeholder="Title" name="title" onChange={this.handleChange}/>
+            <textarea type="text" className="add-post-form__input" placeholder="text" name="text" onChange={this.handleChange}/>
+            <button className="add-post-form__submit-button" type="submit">Create Post</button>
+          </form>
+        </div>
+      )
+    }else if(userStatus === '' || userStatus === 'failed'){
+      return <Redirect to='/login'/>
+    }else if(userStatus === 'pending'){
+      return (
+        <div className="loader"></div>
+      )
+    }
   }
 }
 

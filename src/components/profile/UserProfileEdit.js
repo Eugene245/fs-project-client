@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/forms/profile-edit-form.css'
+import { Redirect } from 'react-router-dom'
 
 class UserProfileEdit extends React.Component{
 constructor(props) {
@@ -30,9 +31,8 @@ handleSubmit(event) {
 }
 
   render() {
-    const { user } = this.props
-    console.log(this.state)
-      if(Object.keys(user).length !== 0) {
+    const { user, userStatus } = this.props
+      if(userStatus === 'responded') {
       return (
         <div className="profile-edit-container">
           <h2>Change Your Profile</h2>
@@ -55,11 +55,12 @@ handleSubmit(event) {
           </form>
         </div>
       )
+    }if(userStatus === '' || userStatus === 'failed') {
+      return <Redirect to='/feed'/>
     }else {
       return (
         <>
           <div className="loader"></div>
-          <span>You need to log in</span>
         </>
       )
     }

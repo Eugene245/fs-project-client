@@ -3,6 +3,10 @@ export function selectUser(state) {
   return state.user
 }
 
+export function selectUserStatus(state) {
+  return state.user.status
+}
+
 export function selectToken(state) {
   return state.app.token
 }

@@ -1,7 +1,9 @@
 import axios from 'axios'
 
 export function login(credentials) {
-  return axios.post('http://localhost:5000/api/users/login', credentials)
+  return axios
+    .post('http://localhost:5000/api/users/login', credentials)
+    .then(response => response.data)
 }
 
 export function auth(token) {
@@ -11,7 +13,9 @@ export function auth(token) {
 }
 
 export function register(credentials) {
-  return axios.post('http://localhost:5000/api/users/registration', credentials)
+  return axios
+    .post('http://localhost:5000/api/users/registration', credentials)
+    .then(response => response.data)
 }
 
 export function editProfile(credentials) {

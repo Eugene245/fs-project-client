@@ -1,4 +1,5 @@
 import React from 'react'
+import UserRedirect from '../UserRedirect'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../styles/forms/login-form.css'
 
@@ -31,6 +32,8 @@ class Login extends React.Component {
 
   render() {
     return (
+      <>
+      <UserRedirect route='login' />
       <div className="login-form-container">
         <div className="login-form-container__title">
           <h2>Log In</h2>
@@ -51,6 +54,7 @@ class Login extends React.Component {
           <button className="login-form__submit-button"  type="submit">Sign in</button>
         </form>
       </div>
+      </>
     )
   }
 }

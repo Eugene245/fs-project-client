@@ -4,5 +4,6 @@ export default {
   postsById: {},
   pagination: {},
   likes: 0,
-  deletedPost: {}
+  deletedPost: {},
+  status: '',
 }

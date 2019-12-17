@@ -1,18 +1,23 @@
 import React from 'react'
 import PostListContainer from '../containers/PostListContainer'
+import { Redirect } from 'react-router-dom'
 
 function Following(props) {
-  const { userFollowing, user } = props
-  if (!user.isAuthenticated) {
+  const { userFollowing, userStatus } = props
+  if (userStatus === 'responded' && userFollowing.length === 0) {
     return (
-      <div className="loader"></div>
+      <div>
+        <strong>No Following</strong>
+      </div>
     )
   }
-  else if(userFollowing !== undefined) {
+  else if(userStatus === 'responded' && userFollowing.length !== 0) {
     return (
       <PostListContainer users={userFollowing}/>
     )
-  }else {
+  }else if(userStatus === '' || userStatus === 'failed'){
+    return <Redirect to='/login'/>
+  }else if(userStatus === 'pending'){
     return (
       <div className="loader"></div>
     )

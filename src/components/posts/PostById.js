@@ -12,12 +12,12 @@ class PostById extends React.Component {
   }
   
   render(){
-    const { post } = this.props
+    const { post, postStatus } = this.props
     return(
       <>
       {
         (() => {
-          if(post !== undefined) {
+          if(postStatus === 'responded') {
             return (
               <div id="wrapper">
             <div class="post-page" id={post._id}>

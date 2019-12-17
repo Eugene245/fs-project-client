@@ -8,6 +8,10 @@ export function selectPosts(state) {
   }, [])
 }
 
+export function selectPostStatus(state) {
+  return state.post.status
+}
+
 export function selectPagination(state) {
   return state.post.pagination
 }

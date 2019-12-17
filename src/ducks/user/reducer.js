@@ -6,6 +6,11 @@ export default function(state = initialState, action) {
     case types.LOGIN_REQUEST:
     case types.AUTH_REQUEST:
     case types.REGISTER_REQUEST:
+      return {
+        ...state,
+        error: null,
+        status: 'pending',
+      }
     case types.EDIT_PROFILE_REQUEST:
     case types.FOLLOW_REQUEST:
     case types.UNFOLLOW_REQUEST:
@@ -27,6 +32,7 @@ export default function(state = initialState, action) {
         ...state,
         user: action.user,
         isAuthenticated: 'true',
+        status: 'responded',
       } 
     case types.EDIT_PROFILE_SUCCESS:
       return {
@@ -38,6 +44,7 @@ export default function(state = initialState, action) {
         ...state,
         user: action.user,
         isAuthenticated: 'true',
+        status: 'responded',
       }
     case types.LIKE_SUCCESS:  
     case types.UNLIKE_SUCCESS:
@@ -46,7 +53,7 @@ export default function(state = initialState, action) {
         user: {
           ...state.user,
           liked_posts: action.liked_posts,
-        }
+        },
       }
     case types.FOLLOW_SUCCESS:
     case types.UNFOLLOW_SUCCESS:  
@@ -55,7 +62,7 @@ export default function(state = initialState, action) {
       user: {
         ...state.user,
         following: action.following
-      }
+      },
     }  
     case types.FETCH_USER_SUCCESS:
       return {
@@ -68,14 +75,21 @@ export default function(state = initialState, action) {
         ...state,
         error: action.error,
         isAuthenticated: 'error',
+        status: 'failed',
       }
     case types.RESET_FOUND_USERS:
       return {
         ...state,
         foundUsers: [],
       }
-    case types.EDIT_PROFILE_ERROR:
+    
     case types.AUTH_ERROR: 
+    return {
+      ...state,
+      error: action.error,
+      status: 'failed',
+    }
+    case types.EDIT_PROFILE_ERROR:
     case types.FOLLOW_ERROR:
     case types.UNFOLLOW_ERROR:
     case types.LIKE_ERROR:
@@ -91,8 +105,8 @@ export default function(state = initialState, action) {
         user: {},
         token: null,
         isAuthenticated: 'false',
+        status: '',
       }
-
     default:
       return state
   }

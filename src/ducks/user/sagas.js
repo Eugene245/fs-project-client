@@ -5,10 +5,9 @@ import * as services from './services'
 
 export function* registerSaga(credentials) {
   try {
-    const {
-      data: { user },
-    } = yield services.register(credentials)
+    const { token, user } = yield services.register(credentials)
     yield put(actions.registerSuccess(user))
+    yield localStorage.setItem('token', token)
     return { payload: user }
   } catch (error) {
     yield put(actions.registerError(error.response.data.msg))
@@ -18,9 +17,7 @@ export function* registerSaga(credentials) {
 
 export function* loginSaga(credentials) {
   try {
-    const {
-      data: { user, token },
-    } = yield services.login(credentials)
+    const { token, user } = yield services.login(credentials)
     yield put(actions.loginSuccess(user))
     yield localStorage.setItem('token', token)
     return { payload: { user, token } }

@@ -11,6 +11,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         error: null,
+        status: 'pending',
       }
     case types.FETCH_POST_BY_ID_SUCCESS:
       return {
@@ -19,6 +20,7 @@ export default function(state = initialState, action) {
           [action.post._id]: action.post,
         },
         postsIds: [action.post._id],
+        status: 'responded',
       }
     case types.LIKE_SUCCESS:
     case types.UNLIKE_SUCCESS: 
@@ -30,7 +32,8 @@ export default function(state = initialState, action) {
             ...state.postsById[action.postId],
             likes: action.likes
           }
-        }
+        },
+        status: 'responded',
       } 
     case types.FETCH_POSTS_REQUEST:
     case types.FETCH_USER_POSTS_REQUEST:
@@ -38,6 +41,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         error: null,
+        status: 'responded',
       }
     case types.FETCH_POSTS_SUCCESS:
       return {
@@ -55,6 +59,7 @@ export default function(state = initialState, action) {
           { postsIds: state.postsIds, postsById: state.postsById },
         ),
         pagination: action.pagination,
+        status: 'responded',
       }
     case types.FETCH_USER_POSTS_SUCCESS:
       return {
@@ -71,6 +76,7 @@ export default function(state = initialState, action) {
           }),
           { postsIds: state.postsIds, postsById: state.postsById },
         ),
+        status: 'responded',
       }
     case types.FETCH_MORE_POSTS_SUCCESS:
       return {
@@ -85,8 +91,8 @@ export default function(state = initialState, action) {
           ...state.pagination,
           offset: state.pagination.offset + state.pagination.limit + action.pagination.offset,
           limit: action.pagination.limit,
-        }  
-        
+        },
+        status: 'responded',
       }
     case types.DELETE_POST_BY_ID_SUCCESS:
       let newPostsById = Object.keys(state.postsById).reduce((reduced, curVal) => {
@@ -97,7 +103,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         postsIds: state.postsIds.filter(id => id !== action.deletedPostId),
-        postsById: newPostsById 
+        postsById: newPostsById,
+        status: 'responded',
       }
     case types.RESET_POSTS:
       return (
@@ -112,12 +119,14 @@ export default function(state = initialState, action) {
       return {
         ...state,
         error: action.error,
+        status: 'failed',
       }
     case types.ADDPOST_REQUEST:
     case types.ADDCOMMENT_REQUEST:
       return {
         ...state,
         error: null,
+        status: 'pending',
       }
     case types.ADDPOST_SUCCESS:
     case types.ADDCOMMENT_SUCCESS:
@@ -132,6 +141,7 @@ export default function(state = initialState, action) {
         },
         added: true,
         error: null,
+        status: 'responded',
       }
     case types.ADDPOST_ERROR:
     case types.ADDCOMMENT_ERROR:
@@ -140,6 +150,7 @@ export default function(state = initialState, action) {
         ...state,
         added: false,
         error: action.error,
+        status: 'failed',
       }
     default:
       return state
