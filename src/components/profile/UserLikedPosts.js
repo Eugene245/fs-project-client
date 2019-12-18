@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 
 function UserLikedPosts(props) {
   const { likedPosts, userStatus, postStatus } = props
-  console.log(likedPosts, userStatus,postStatus )
   if(userStatus === 'responded' && likedPosts.length !== 0) {
     return (
       <PostListContainer ids={likedPosts}/>
