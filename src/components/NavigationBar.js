@@ -60,7 +60,13 @@ render() {
                   </NavLink>
 
                 </div>
-                <Notification error={user.error}/>
+                {
+                  (() => {
+                    if(user.status === 'failed') {
+                      return <Notification error={user.error}/>
+                    }
+                  })()
+                }
                 </>
               )
           }

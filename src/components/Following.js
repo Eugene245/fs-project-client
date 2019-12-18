@@ -6,8 +6,8 @@ function Following(props) {
   const { userFollowing, userStatus } = props
   if (userStatus === 'responded' && userFollowing.length === 0) {
     return (
-      <div>
-        <strong>No Following</strong>
+      <div className="empty-page-info">
+        <span>You are not followed to any user</span>
       </div>
     )
   }

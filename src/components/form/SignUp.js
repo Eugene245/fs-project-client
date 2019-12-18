@@ -1,15 +1,15 @@
 import React from "react";
 import UserRedirect from '../UserRedirect'
 import '../../styles/forms/register-form.css'
-import { ToastContainer, toast } from 'react-toastify';
+import Notification from '../Notification'
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: '',email: '', password: '', isSubmitted: false};
+    this.state = {username: '',email: '', emailError: false,  password: '', isSubmitted: false};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.errorNotify = this.errorNotify.bind(this);
+    this.emailValidationCheck = this.emailValidationCheck.bind(this);
   }
 
 
@@ -18,13 +18,14 @@ class SignUp extends React.Component {
     return check.test(String(email).toLowerCase());
   }
 
-  errorNotify = (info) => this.toastId = toast(info, {
-    autoClose: 3000,
-    type: toast.TYPE.ERROR,
-  });
-  
+  emailValidationCheck() {
+    if(this.state.emailError) {
+      return <Notification error={'email is not valid!'} />
+    }
+  }
 
   handleChange(event) {
+    this.setState({emailError: false})
     if (event.target.name === "username") {
       this.setState({username: event.target.value})
     }
@@ -47,7 +48,7 @@ class SignUp extends React.Component {
       }
       onRegisterRequest(user)
     }else {
-      this.errorNotify('email is not valid!')
+      this.setState({emailError: true})
     }
   }
 
@@ -55,7 +56,7 @@ class SignUp extends React.Component {
     return (
       <>
       <UserRedirect route='signup' />
-      <ToastContainer />
+      {this.emailValidationCheck()}
       <div className="signup-form-container">
         <div className="signup-form-container__title">
           <h2>Sign Up</h2>

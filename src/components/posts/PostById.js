@@ -13,11 +13,12 @@ class PostById extends React.Component {
   
   render(){
     const { post, postStatus } = this.props
+    console.log(this.props)
     return(
       <>
       {
         (() => {
-          if(postStatus === 'responded') {
+          if(postStatus === 'responded' && post !== undefined) {
             return (
               <div id="wrapper">
             <div class="post-page" id={post._id}>
@@ -66,7 +67,13 @@ class PostById extends React.Component {
       </div>
     </div>
             )
-          } else {
+          }else if(post === undefined){
+            return (
+              <div className="empty-page-info">
+                <span>Post not found</span>
+              </div>
+            )
+          }else {
             return <div className="loader"></div>
           }
         })()

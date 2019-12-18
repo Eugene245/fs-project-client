@@ -140,3 +140,11 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.empty-page-info {
+  width: 100%;
+  text-align: center;
+  margin: 50px auto;
+  font-size: 25px;
+  color: grey;
+}

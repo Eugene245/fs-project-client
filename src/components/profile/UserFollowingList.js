@@ -26,8 +26,8 @@ constructor(props) {
     }
     else if(userStatus === 'responded' && followingList.length === 0){
       return (
-        <div>
-          <h2>No users</h2>
+        <div className="empty-page-info">
+          <span>You are not followed to any user</span>
         </div>
       )
     }else if(userStatus === '' || userStatus === 'failed'){

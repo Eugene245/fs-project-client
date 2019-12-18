@@ -11,9 +11,15 @@ export default function UserInfo(props) {
         <span>{receivedUser.name}</span>
       </div>
       <div className="user-info-page__description">
-        <p>
-          {receivedUser.description}
-        </p>
+        {
+          (() => {
+            if(receivedUser.description === '') {
+              return <span style={{color: "rgb(189, 189, 189)", fontStyle: "italic"}}>No Description</span>
+            }else {
+              return <p>{receivedUser.description}</p>  
+            }
+          })()
+        }
       </div>
       <div className="user-info-page__register-date">
         <span>Register date: </span>

@@ -16,11 +16,8 @@ notify = (info) => this.toastId = toast(info, {
 
   render () {
     const { error } = this.props
-    return (
-      <>
-        <ToastContainer position={toast.POSITION.BOTTOM_RIGHT} onload={this.notify(error)}/>
-      </>
-    )
+    console.log(this.props)
+    return <ToastContainer onload={this.notify(error)}/>
   }
 }
 

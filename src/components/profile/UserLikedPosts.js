@@ -11,8 +11,8 @@ function UserLikedPosts(props) {
     )
   }else if(userStatus === 'responded' && likedPosts.length === 0){
     return (
-      <div>
-        <h2>No Posts</h2>
+      <div className="empty-page-info">
+        <span>No Posts</span>
       </div>
     )
   }else if(userStatus === '' || userStatus === 'failed'){
